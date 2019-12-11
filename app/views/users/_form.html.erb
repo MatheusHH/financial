@@ -52,20 +52,26 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="form-group">
-            <%= form.label :role %>
-            <%= form.select :role, User.roles.keys.to_a, {}, class: "form-control" %>
+      <% if policy(current_user).role_field? %>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <%= form.label :role %>
+              <%= form.select :role, User.roles.keys.to_a, {}, class: "form-control" %>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
 
       <div class="row">
         <div class="col-sm-4">
           <div class="form-group">
             <%= form.submit "Save", class: "btn btn-primary" %>
-            <%= link_to 'Back', users_path, class: "btn btn-success" %>
+            <% unless policy(current_user).redirect_form? %>
+              <%= link_to 'Back', home_index_path, class: "btn btn-success" %>
+            <% else %>
+              <%= link_to 'Back', users_path, class: "btn btn-primary" %>
+            <% end %>
           </div>
         </div>
       </div>

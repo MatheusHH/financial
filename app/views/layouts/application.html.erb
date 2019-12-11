@@ -31,9 +31,11 @@
         </li>
 
         <li class="nav-item">
-          <%= link_to users_path, class: "nav-link" do %>
-            <i class="fa fa-users"></i>
-            <span>Usuários</span>
+          <% if policy(current_user).index? %>
+            <%= link_to users_path, class: "nav-link" do %>
+              <i class="fa fa-users"></i>
+              <span>Usuários</span>
+            <% end %>
           <% end %>
         </li>
 

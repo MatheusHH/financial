@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :suppliers
   devise_for :users
   resources :users, :except => [:show]
   get 'home/index'
