@@ -42,13 +42,34 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-fw fa-folder"></i>
-            <span>Opções</span>
+            <span>Expenses</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Login Screens:</h6>
+            <h6 class="dropdown-header">Options:</h6>
             <%= link_to suppliers_path, class: "dropdown-item" do %>
               <i class="fa fa-clipboard"></i>
-              <span>Fornecedores</span>
+              <span>Suppliers</span>
+            <% end %>
+
+            <div class="dropdown-divider"></div>
+            <%= link_to categories_path, class: "dropdown-item" do %>
+              <i class="fa fa-align-justify"></i>
+              <span>Categories</span>
+            <% end %>
+            
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-fw fa-folder"></i>
+            <span>Revenues</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <h6 class="dropdown-header">Options:</h6>
+            <%= link_to suppliers_path, class: "dropdown-item" do %>
+              <i class="fa fa-clipboard"></i>
+              <span></span>
             <% end %>
 
             <div class="dropdown-divider"></div>
