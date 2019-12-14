@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :categories
-  resources :suppliers
+  resources :expenses, :except => [:show]
+  resources :categories, :except => [:show]
+  resources :suppliers, :except => [:show]
   devise_for :users
   resources :users, :except => [:show]
   get 'home/index'

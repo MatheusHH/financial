@@ -1,0 +1,39 @@
+<h1>Expenses</h1>
+<div class="card"> 
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+            <th>Duedate</th>
+            <th>Category</th>
+            <th>Supplier</th>
+            <th>Status</th>
+            <th>Value</th>
+            <th>User</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @expenses.each do |expense| %>
+            <tr>
+              <td><%= expense.duedate %></td>
+              <td><%= expense.category.name %></td>
+              <td><%= expense.supplier.name %></td>
+              <td><%= expense.status %></td>
+              <td><%= expense.value %></td>
+              <td><%= expense.user.name %></td>
+              <td><%= link_to edit_expense_path(expense), class: "btn btn-info btn-circle" do %><i class="fa fa-edit"></i><% end %>
+              <%= link_to expense_path(expense), method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do  %> <i class="fa fa-trash"></i> <% end %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+
+    <%= link_to 'New Expense', new_expense_path, class: "btn btn-primary" %>
+  </div>
+</div>

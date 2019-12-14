@@ -7,5 +7,7 @@ class User < ApplicationRecord
   enum role: [ :admin, :customer ]
 
   has_many :suppliers, dependent: :destroy
+  has_many :caategories, dependent: :destroy
+  has_many :expenses, dependent: :destroy
   
 end
