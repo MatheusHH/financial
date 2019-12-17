@@ -9,5 +9,6 @@ class User < ApplicationRecord
   has_many :suppliers, dependent: :destroy
   has_many :caategories, dependent: :destroy
   has_many :expenses, dependent: :destroy
+  has_many :accounts, dependent: :destroy
   
 end

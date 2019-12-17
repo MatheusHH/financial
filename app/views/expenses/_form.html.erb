@@ -41,6 +41,15 @@
       </div>
 
       <div class="row">
+        <div class="col-sm-5">
+          <div class="form-group">
+            <%= form.label :account_id %>
+            <%= form.select(:account_id, Account.where(user_id: current_user.id ).collect {|p| [ p.bank, p.id ] }, {prompt: "Selecione a conta para débito"}, { class: "form-control" })%>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="col-sm-4">
           <div class="form-group">
             <%= form.label :status %>

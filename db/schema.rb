@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_16_212603) do
+ActiveRecord::Schema.define(version: 2019_12_16_230031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2019_12_16_212603) do
     t.datetime "updated_at", null: false
     t.integer "value_cents", default: 0, null: false
     t.string "value_currency", default: "BRL", null: false
+    t.bigint "account_id"
+    t.index ["account_id"], name: "index_expenses_on_account_id"
     t.index ["category_id"], name: "index_expenses_on_category_id"
     t.index ["supplier_id"], name: "index_expenses_on_supplier_id"
     t.index ["user_id"], name: "index_expenses_on_user_id"
@@ -75,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_12_16_212603) do
 
   add_foreign_key "accounts", "users"
   add_foreign_key "categories", "users"
+  add_foreign_key "expenses", "accounts"
   add_foreign_key "expenses", "categories"
   add_foreign_key "expenses", "suppliers"
   add_foreign_key "expenses", "users"
