@@ -1,0 +1,54 @@
+<div class="card"> 
+  <div class="card-body">
+    <%= form_with(model: income, local: true) do |form| %>
+      <% if income.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(income.errors.count, "error") %> prohibited this income from being saved:</h2>
+
+          <ul>
+          <% income.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.label :receipt_date %>
+            <%= form.text_field :receipt_date, class: "form-control", id: "datepicker" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="form-group">
+            <%= form.label :account_id %>
+            <%= form.select(:account_id, Account.where(user_id: current_user.id ).collect {|p| [ p.bank, p.id ] }, {prompt: "Selecione a conta para débito"}, { class: "form-control" })%>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.label :value %>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><%= income.value.currency.symbol %></span>
+                <%= form.text_field :value, class: "form-control"  %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Save", class: "btn btn-primary" %>
+        <%= link_to 'Back', incomes_path, class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>

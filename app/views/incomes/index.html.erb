@@ -1,0 +1,33 @@
+<h1>Incomes</h1>
+<div class="card"> 
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+            <th>Receipt date</th>
+            <th>Value</th>
+            <th>User</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @incomes.each do |income| %>
+            <tr>
+              <td><%= income.receipt_date %></td>
+              <td><%= income.value %></td>
+              <td><%= income.user.name %></td>
+              <td><%= link_to edit_income_path(income), class: "btn btn-info btn-circle" do %><i class="fa fa-edit"></i><% end %>
+              <%= link_to income_path(income), method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do  %> <i class="fa fa-trash"></i> <% end %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+
+    <%= link_to 'New Income', new_income_path, class: "btn btn-primary" %>
+  </div>
+</div>

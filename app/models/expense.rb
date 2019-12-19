@@ -11,7 +11,7 @@ class Expense < ApplicationRecord
   before_save :update_account_balance, on: [ :create, :update ]
 
   before_destroy :restore_balance
-  #before_update :update_balances
+  after_save :update_balances, on: [ :update ]
 
 
   private
@@ -44,7 +44,7 @@ class Expense < ApplicationRecord
   	end
   	account = Account.find(self.account_id)
   	account.balance_cents = sum_income - sum_expense
-  	self.account.update(balance_cents: account.balance_cents)
+  	account.update(balance_cents: account.balance_cents)
   end
 
   def restore_balance

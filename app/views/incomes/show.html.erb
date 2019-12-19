@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Receipt date:</strong>
+  <%= @income.receipt_date %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @income.value %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @income.user %>
+</p>
+
+<%= link_to 'Edit', edit_income_path(@income) %> |
+<%= link_to 'Back', incomes_path %>
