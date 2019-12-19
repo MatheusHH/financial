@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_19_144749) do
+ActiveRecord::Schema.define(version: 2019_12_19_154440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,7 +60,11 @@ ActiveRecord::Schema.define(version: 2019_12_19_144749) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "account_id"
+    t.bigint "kind_id"
+    t.bigint "source_id"
     t.index ["account_id"], name: "index_incomes_on_account_id"
+    t.index ["kind_id"], name: "index_incomes_on_kind_id"
+    t.index ["source_id"], name: "index_incomes_on_source_id"
     t.index ["user_id"], name: "index_incomes_on_user_id"
   end
 
@@ -111,6 +115,8 @@ ActiveRecord::Schema.define(version: 2019_12_19_144749) do
   add_foreign_key "expenses", "suppliers"
   add_foreign_key "expenses", "users"
   add_foreign_key "incomes", "accounts"
+  add_foreign_key "incomes", "kinds"
+  add_foreign_key "incomes", "sources"
   add_foreign_key "incomes", "users"
   add_foreign_key "kinds", "users"
   add_foreign_key "sources", "users"
