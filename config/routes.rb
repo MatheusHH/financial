@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :kinds
+  resources :sources
   resources :incomes
   resources :accounts, :except => [:show]
   resources :expenses, :except => [:show]

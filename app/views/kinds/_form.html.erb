@@ -1,0 +1,31 @@
+<div class="card"> 
+  <div class="card-body">
+    <%= form_with(model: kind, local: true) do |form| %>
+      <% if kind.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(kind.errors.count, "error") %> prohibited this kind from being saved:</h2>
+
+          <ul>
+          <% kind.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.label :name %>
+            <%= form.text_field :name, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Save", class: "btn btn-primary" %>
+        <%= link_to 'Back', kinds_path, class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>
