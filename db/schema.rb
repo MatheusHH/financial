@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_19_154440) do
+ActiveRecord::Schema.define(version: 2019_12_26_234807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,17 @@ ActiveRecord::Schema.define(version: 2019_12_19_154440) do
     t.index ["user_id"], name: "index_suppliers_on_user_id"
   end
 
+  create_table "transfers", force: :cascade do |t|
+    t.integer "sender_account"
+    t.integer "receiver_account"
+    t.integer "value_cents", default: 0, null: false
+    t.string "value_currency", default: "BRL", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_transfers_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.integer "role"
@@ -121,4 +132,5 @@ ActiveRecord::Schema.define(version: 2019_12_19_154440) do
   add_foreign_key "kinds", "users"
   add_foreign_key "sources", "users"
   add_foreign_key "suppliers", "users"
+  add_foreign_key "transfers", "users"
 end

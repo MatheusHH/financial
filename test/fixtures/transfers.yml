@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sender_account: 1
+  receiver_account: 1
+  value: 1
+  user: one
+
+two:
+  sender_account: 1
+  receiver_account: 1
+  value: 1
+  user: two

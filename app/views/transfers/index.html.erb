@@ -1,0 +1,34 @@
+<h1>Transfers</h1>
+<div class="card">  
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+            <th>Sender account</th>
+            <th>Receiver account</th>
+            <th>Value</th>
+            <th>User</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+ 
+        <tbody>
+          <% @transfers.each do |transfer| %>
+            <tr>
+              <td><%= account_bank_name(transfer.sender_account) %></td>
+              <td><%= account_bank_name(transfer.receiver_account) %></td>
+              <td><%= transfer.value %></td>
+              <td><%= transfer.user.name %></td>
+              <td><%= link_to edit_transfer_path(transfer), class: "btn btn-info btn-circle" do %><i class="fa fa-edit"></i><% end %>
+              <%= link_to transfer_path(transfer), method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do  %> <i class="fa fa-trash"></i> <% end %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <br>
+
+    <%= link_to 'New Transfer', new_transfer_path, class: "btn btn-primary" %>
+  </div>
+</div>

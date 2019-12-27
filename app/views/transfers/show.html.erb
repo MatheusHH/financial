@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sender account:</strong>
+  <%= @transfer.sender_account %>
+</p>
+
+<p>
+  <strong>Receiver account:</strong>
+  <%= @transfer.receiver_account %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @transfer.value %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @transfer.user %>
+</p>
+
+<%= link_to 'Edit', edit_transfer_path(@transfer) %> |
+<%= link_to 'Back', transfers_path %>

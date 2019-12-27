@@ -1,0 +1,54 @@
+<div class="card"> 
+  <div class="card-body">
+    <%= form_with(model: transfer, local: true) do |form| %>
+      <% if transfer.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(transfer.errors.count, "error") %> prohibited this transfer from being saved:</h2>
+
+          <ul>
+          <% transfer.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+     <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.label :sender_account %>
+            <%= form.select(:sender_account, Account.where(user_id: current_user.id ).collect {|p| [ p.bank, p.id ] }, {prompt: "Selecione a conta para débito"}, { class: "form-control" })%>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.label :receiver_account %>
+            <%= form.select(:receiver_account, Account.where(user_id: current_user.id ).collect {|p| [ p.bank, p.id ] }, {prompt: "Selecione a conta para crédito"}, { class: "form-control" })%>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.label :value %>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><%= transfer.value.currency.symbol %></span>
+                <%= form.text_field :value, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Save", class: "btn btn-primary" %>
+        <%= link_to 'Back', transfers_path, class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>
