@@ -16,8 +16,8 @@
         <tbody>
           <% @transfers.each do |transfer| %>
             <tr>
-              <td><%= account_bank_name(transfer.sender_account) %></td>
-              <td><%= account_bank_name(transfer.receiver_account) %></td>
+              <td><%= transfer.sender.bank %></td>
+              <td><%= transfer.receiver.bank %></td>
               <td><%= transfer.value %></td>
               <td><%= transfer.user.name %></td>
               <td><%= link_to edit_transfer_path(transfer), class: "btn btn-info btn-circle" do %><i class="fa fa-edit"></i><% end %>

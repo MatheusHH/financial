@@ -3,7 +3,9 @@ class Account < ApplicationRecord
   has_many :expenses
 
   monetize :balance_cents
-
-  has_many :Transfers, class_name: "Transfer",
-                          foreign_key: "transfer_id"
+ 
+  has_many :senders, class_name: "Transfer",
+                          foreign_key: "sender_account"
+  has_many :receivers, class_name: "Transfer",
+                          foreign_key: "receiver_account"
 end
