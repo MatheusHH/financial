@@ -51,10 +51,10 @@ class Expense < ApplicationRecord
           old_account = Account.find(self.previous_changes[:account_id][0])
           new_account = Account.find(self.previous_changes[:account_id][1])
 
-          old_account.balance_cents += self.previous_changes[:value_cents][0]
-          old_account.update(balance_cents: old_account.balance_cents)
-
           if new_account.balance_cents >= self.previous_changes[:value_cents][1]
+            old_account.balance_cents += self.previous_changes[:value_cents][0]
+            old_account.update(balance_cents: old_account.balance_cents)
+
             new_account.balance_cents -= self.previous_changes[:value_cents][1]
             new_account.update(balance_cents: new_account.balance_cents) 
           else
@@ -64,16 +64,16 @@ class Expense < ApplicationRecord
             end
           end
         else
-          if self.account_id_previously_changed?
+          if self.account_id_previously_changed? && self.value_cents_previously_changed? == false
             old_account = Account.find(self.previous_changes[:account_id][0])
             new_account = Account.find(self.previous_changes[:account_id][1])
-
-            old_account.balance_cents += self.value_cents
-            old_account.update(balance_cents: old_account.balance_cents)
 
             if new_account.balance_cents >= self.value_cents
               new_account.balance_cents -= self.value_cents
               new_account.update(balance_cents: new_account.balance_cents)
+
+              old_account.balance_cents += self.value_cents
+              old_account.update(balance_cents: old_account.balance_cents)
             else
               self.errors.add :base, "There is not balance available" 
               raise ActiveRecord::RecordInvalid.new(self)
