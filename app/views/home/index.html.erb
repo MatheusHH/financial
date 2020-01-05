@@ -1,1 +1,65 @@
- <h1>Dashboard </h1>
+ <h3>My Balances </h3>
+
+ <!-- Icon Cards-->
+<div class="row">
+	<% @accounts.each do |account| %> 
+	  <div class="col-xl-3 col-sm-6 mb-3">
+	    <div class="card text-white bg-success shadow p-3 mb-5">
+	      <div class="card-body">
+	      	<h5 class="card-title"><%= account.bank %></h5>
+	        <div class="card-body-icon">
+	          <i class="fa fa-fw fa-money"></i>
+	        </div>
+	        <div class="mr-5">R$ <%= account.balance %></div>
+	      </div>
+	      <%= link_to edit_account_path(account), class: "card-footer text-white clearfix small z-1" do %>
+	        <span class="float-left">View Details</span>
+	        <span class="float-right">
+	          <i class="fa fa-angle-right"></i>
+	        </span>
+	      <% end %>
+	    </div>
+	  </div>
+	<% end %>
+</div>
+<hr>
+<h3>My Expenses </h3>
+<div class="row">
+	 
+  <div class="col-xl-3 col-sm-6 mb-3">
+    <div class="card text-white bg-primary shadow p-3 mb-5">
+      <div class="card-body">
+      	<h5 class="card-title">Value opened</h5>
+        <div class="card-body-icon">
+          <i class="fa fa-fw fa-money"></i>
+        </div>
+        <div class="mr-5"> <%= humanized_money_with_symbol divide_by_100(@expenses_open) %></div>
+      </div>
+      <%= link_to expenses_path, class: "card-footer text-white clearfix small z-1" do %>
+        <span class="float-left">View Details</span>
+        <span class="float-right">
+          <i class="fa fa-angle-right"></i>
+        </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-sm-6 mb-3">
+    <div class="card text-white bg-primary shadow p-3 mb-5">
+      <div class="card-body">
+      	<h5 class="card-title">Value paid</h5>
+        <div class="card-body-icon">
+          <i class="fa fa-fw fa-money"></i>
+        </div>
+        <div class="mr-5"> <%= humanized_money_with_symbol divide_by_100(@expenses_paid) %></div>
+      </div>
+      <%= link_to expenses_path, class: "card-footer text-white clearfix small z-1" do %>
+        <span class="float-left">View Details</span>
+        <span class="float-right">
+          <i class="fa fa-angle-right"></i>
+        </span>
+      <% end %>
+    </div>
+  </div>
+	
+</div>

@@ -1,4 +1,4 @@
-$(document).ready(function($) {
+$(document).on('turbolinks:load', function() {
   "use strict"; // Start of use strict
   // Toggle the side navigation
   $("#sidebarToggle").on('click', function(e) {
