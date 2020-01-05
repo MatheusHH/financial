@@ -18,3 +18,12 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require sb-admin
+
+/* Spin */
+$(document).on("turbolinks:click", function(){
+  $(".spinner-grow").show();
+});
+
+$(document).on("turbolinks:load", function(){
+  $(".spinner-grow").delay(1500).hide(0);
+});
