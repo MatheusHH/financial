@@ -1,16 +1,16 @@
-<h1>Accounts</h1>
-<div class="card"> 
+<h1><%= @accounts.model_name.human(count: 2) %></h1>
+<div class="card shadow p-3 mb-5"> 
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-hover table-dark">
         <thead>
           <tr>
-            <th>Agency number</th>
-            <th>Account number</th>
-            <th>Bank</th>
-            <th>Balance</th>
-            <th>User</th>
-            <th>Actions</th>
+            <th><%= @accounts.human_attribute_name("agency_number") %></th>
+            <th><%= @accounts.human_attribute_name("account_number") %></th>
+            <th><%= @accounts.human_attribute_name("bank") %></th>
+            <th><%= @accounts.human_attribute_name("balance") %></th>
+            <th><%= @accounts.human_attribute_name("user") %></th>
+            <th><%= t('helpers.submit.actions') %></th>
           </tr>
         </thead>
 
@@ -32,6 +32,6 @@
 
     <br>
 
-    <%= link_to 'New Account', new_account_path, class: "btn btn-primary" %>
+    <%= link_to t('actions.new(a)', model: @accounts.model_name.human), new_account_path, class: "btn btn-primary" %>
   </div>
 </div>

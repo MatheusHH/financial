@@ -25,5 +25,5 @@ $(document).on("turbolinks:click", function(){
 });
 
 $(document).on("turbolinks:load", function(){
-  $(".spinner-grow").delay(1500).hide(0);
+  $(".spinner-grow").delay(1000).hide(0);
 });

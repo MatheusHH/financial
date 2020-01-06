@@ -1,0 +1,39 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+      account:
+        one: Conta
+        other: Contas
+      category:
+        one: Categoria
+        other: Categorias
+      expense:
+        one: Despesa
+        other: Despesas
+
+    attributes:
+      user:
+        name: Nome
+        email: Email
+        role: Tipo de Usuário
+      account:
+        agency_number: Agência
+        account_number: Número da conta
+        bank: Banco
+        balance: Saldo da conta
+        user: Usuário
+      category:
+        name: Nome
+        user: Usuário
+      expense:
+        duedate: Vencimento
+        category_id: Categoria
+        supplier_id: Recebedor
+        account_id: Conta de pagamento
+        status: Status
+        value: Valor
+        user: Usuário
+      

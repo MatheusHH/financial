@@ -1,17 +1,17 @@
-<h1>Expenses</h1>
-<div class="card"> 
+<h1><%= @expenses.model_name.human(count: 2) %></h1>
+<div class="card shadow p-3 mb-5"> 
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-hover table-dark">
         <thead>
           <tr>
-            <th>Duedate</th>
-            <th>Category</th>
-            <th>Supplier</th>
-            <th>Status</th>
-            <th>Value</th>
-            <th>User</th>
-            <th colspan="3"></th>
+            <th><%= @expenses.human_attribute_name("duedate") %></th>
+            <th><%= @expenses.human_attribute_name("category_id") %></th>
+            <th><%= @expenses.human_attribute_name("supplier_id") %></th>
+            <th><%= @expenses.human_attribute_name("status") %></th>
+            <th><%= @expenses.human_attribute_name("value") %></th>
+            <th><%= @expenses.human_attribute_name("user") %></th>
+            <th><%= t('helpers.submit.actions') %></th>
           </tr>
         </thead>
 
@@ -34,6 +34,6 @@
 
     <br>
 
-    <%= link_to 'New Expense', new_expense_path, class: "btn btn-primary" %>
+    <%= link_to t('actions.new(a)', model: @expenses.model_name.human), new_expense_path, class: "btn btn-primary" %>
   </div>
 </div>
