@@ -1,15 +1,15 @@
-<h1>Transfers</h1>
-<div class="card">  
+<h1><%= @transfers.model_name.human(count: 2) %></h1>
+<div class="card shadow p-3 mb-5">   
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-hover table-dark">
         <thead>
           <tr>
-            <th>Sender account</th>
-            <th>Receiver account</th>
-            <th>Value</th>
-            <th>User</th>
-            <th>Actions</th>
+            <th><%= @transfers.human_attribute_name("sender_account") %></th>
+            <th><%= @transfers.human_attribute_name("receiver_account") %></th>
+            <th><%= @transfers.human_attribute_name("value") %></th>
+            <th><%= @transfers.human_attribute_name("user") %></th>
+            <th><%= t('helpers.submit.actions') %></th>
           </tr>
         </thead>
  
@@ -29,6 +29,6 @@
     </div>
     <br>
 
-    <%= link_to 'New Transfer', new_transfer_path, class: "btn btn-primary" %>
+    <%= link_to t('actions.new(a)', model: @transfers.model_name.human), new_transfer_path, class: "btn btn-primary" %>
   </div>
 </div>

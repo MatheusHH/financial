@@ -13,6 +13,21 @@ pt-BR:
       expense:
         one: Despesa
         other: Despesas
+      income: 
+        one: Receita
+        other: Receitas
+      kind:
+        one: Categoria
+        other: Categorias
+      source: 
+        one: Origem
+        other: Origens
+      supplier:
+        one: Recebedor
+        other: Recebedores
+      transfer:
+        one: Transferência
+        other: Transferências
 
     attributes:
       user:
@@ -36,4 +51,26 @@ pt-BR:
         status: Status
         value: Valor
         user: Usuário
-      
+      income:
+        receipt_date: Data recebida
+        source_id: Origem
+        kind_id: Categoria
+        account_id: Conta
+        value: Valor
+        user: Usuário
+      kind:
+        name: Nome
+        user: Usuário
+      source:
+        name: Nome
+        phone: Telefone
+        user: Usuário
+      supplier:
+        name: Nome
+        phone: Telefone
+        user: Usuário
+      transfer:
+        sender_account: Conta de origem
+        receiver_account: Conta de destino
+        value: Valor
+        user: Usuário

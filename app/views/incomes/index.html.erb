@@ -1,14 +1,14 @@
-<h1>Incomes</h1>
-<div class="card"> 
+<h1><%= @incomes.model_name.human(count: 2) %></h1>
+<div class="card shadow p-3 mb-5"> 
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-hover table-dark">
         <thead>
           <tr>
-            <th>Receipt date</th>
-            <th>Value</th>
-            <th>User</th>
-            <th>Actions</th>
+            <th><%= @incomes.human_attribute_name("receipt_date") %></th>
+            <th><%= @incomes.human_attribute_name("value") %></th>
+            <th><%= @incomes.human_attribute_name("user") %></th>
+            <th><%= t('helpers.submit.actions') %></th>
           </tr>
         </thead>
 
@@ -28,6 +28,6 @@
 
     <br>
 
-    <%= link_to 'New Income', new_income_path, class: "btn btn-primary" %>
+    <%= link_to t('actions.new(a)', model: @incomes.model_name.human), new_income_path, class: "btn btn-primary" %>
   </div>
 </div>

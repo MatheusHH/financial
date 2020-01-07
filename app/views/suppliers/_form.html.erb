@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card shadow p-3 mb-5">
   <div class="card-body">
     <%= form_with(model: supplier, local: true) do |form| %>
       <% if supplier.errors.any? %>
@@ -32,8 +32,8 @@
       </div>
 
       <div class="actions">
-        <%= form.submit "Save", class: "btn btn-primary" %>
-        <%= link_to 'Back', suppliers_path, class: "btn btn-success" %>
+        <%= form.submit t("helpers.submit.create"), class: "btn btn-primary" %>
+        <%= link_to t("actions.back"), suppliers_path, class: "btn btn-success" %>
       </div>
     <% end %>
   </div>
