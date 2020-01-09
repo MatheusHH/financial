@@ -17,7 +17,12 @@
         <div class="col-sm-4">
           <div class="form-group">
             <%= form.label :duedate %>
-            <%= form.text_field :duedate, class: "form-control", id: "datepicker" %>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                <%= form.text_field :duedate, class: "form-control", id: "datepicker" %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -26,7 +31,12 @@
         <div class="col-sm-5">
           <div class="form-group">
             <%= form.label :category_id %>
-            <%= form.select(:category_id, Category.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione a categoria"}, { class: "form-control" })%>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <%= link_to new_category_path, class: "btn btn-outline-secondary", remote: true do %> <i class="fa fa-plus"></i></span><% end %>
+              </div>
+              <%= form.select(:category_id, Category.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione a categoria"}, { class: "form-control" })%>
+            </div>
           </div>
         </div>
       </div>
@@ -35,7 +45,12 @@
         <div class="col-sm-5">
           <div class="form-group">
             <%= form.label :supplier_id %>
-            <%= form.select(:supplier_id, Supplier.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione o recebedor"}, { class: "form-control" })%>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <%= link_to new_supplier_path, class: "btn btn-outline-secondary", remote: true do %> <i class="fa fa-plus"></i></span><% end %>
+              </div>
+              <%= form.select(:supplier_id, Supplier.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione o recebedor"}, { class: "form-control" })%>
+            </div>
           </div>
         </div>
       </div>
@@ -79,3 +94,6 @@
     <% end %>
   </div>
 </div>
+
+<%= render partial: "modals/new_category_expenses" %>
+<%= render partial: "modals/new_supplier_expenses" %>

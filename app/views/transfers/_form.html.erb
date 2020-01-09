@@ -17,7 +17,12 @@
         <div class="col-sm-4">
           <div class="form-group">
             <%= form.label :sender_account %>
-            <%= form.select(:sender_account, Account.where(user_id: current_user.id ).collect {|p| [ p.bank, p.id ] }, {prompt: "Selecione a conta para débito"}, { class: "form-control" })%>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <%= link_to new_account_path, class: "btn btn-outline-secondary", remote: true do %> <i class="fa fa-plus"></i></span><% end %>
+              </div>
+              <%= form.select(:sender_account, Account.where(user_id: current_user.id ).collect {|p| [ p.bank, p.id ] }, {prompt: "Selecione a conta para débito"}, { class: "form-control" })%>
+            </div>
           </div>
         </div>
       </div>
@@ -26,7 +31,12 @@
         <div class="col-sm-4">
           <div class="form-group">
             <%= form.label :receiver_account %>
-            <%= form.select(:receiver_account, Account.where(user_id: current_user.id ).collect {|p| [ p.bank, p.id ] }, {prompt: "Selecione a conta para crédito"}, { class: "form-control" })%>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <%= link_to new_account_path, class: "btn btn-outline-secondary", remote: true do %> <i class="fa fa-plus"></i></span><% end %>
+              </div>
+              <%= form.select(:receiver_account, Account.where(user_id: current_user.id ).collect {|p| [ p.bank, p.id ] }, {prompt: "Selecione a conta para crédito"}, { class: "form-control" })%>
+            </div>
           </div>
         </div>
       </div>
@@ -52,3 +62,5 @@
     <% end %>
   </div>
 </div>
+
+<%= render partial: "modals/new_account_transfers" %>

@@ -2,6 +2,7 @@ class IncomesController < ApplicationController
   before_action :authenticate_user!
   
   before_action :set_income, only: [:show, :edit, :update, :destroy]
+  before_action :set_models_to_income, only: [:edit, :update, :new, :create]
 
   # GET /incomes
   # GET /incomes.json
@@ -69,6 +70,11 @@ class IncomesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_income
       @income = Income.find(params[:id])
+    end
+
+    def set_models_to_income
+      @source = Source.new
+      @kind = Kind.new
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

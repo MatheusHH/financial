@@ -2,6 +2,7 @@ class ExpensesController < ApplicationController
   before_action :authenticate_user!
   
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
+  before_action :set_models_to_expense, only: [:edit, :update, :new, :create]
 
   # GET /expenses
   # GET /expenses.json
@@ -69,6 +70,11 @@ class ExpensesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_expense
       @expense = Expense.find(params[:id])
+    end
+
+    def set_models_to_expense
+      @category = Category.new
+      @supplier = Supplier.new
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -17,7 +17,12 @@
         <div class="col-sm-4">
           <div class="form-group">
             <%= form.label :receipt_date %>
-            <%= form.text_field :receipt_date, class: "form-control", id: "datepicker" %>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                <%= form.text_field :receipt_date, class: "form-control", id: "datepicker" %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -26,7 +31,12 @@
         <div class="col-sm-5">
           <div class="form-group">
             <%= form.label :source_id %>
-            <%= form.select(:source_id, Source.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione a origem"}, { class: "form-control" })%>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <%= link_to new_source_path, class: "btn btn-outline-secondary", remote: true do %> <i class="fa fa-plus"></i></span><% end %>
+              </div>
+              <%= form.select(:source_id, Source.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione a origem"}, { class: "form-control" })%>
+            </div>
           </div>
         </div>
       </div>
@@ -35,7 +45,12 @@
         <div class="col-sm-5">
           <div class="form-group">
             <%= form.label :kind_id %>
-            <%= form.select(:kind_id, Kind.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione a categoria"}, { class: "form-control" })%>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <%= link_to new_kind_path, class: "btn btn-outline-secondary", remote: true do %> <i class="fa fa-plus"></i></span><% end %>
+              </div>
+              <%= form.select(:kind_id, Kind.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione a categoria"}, { class: "form-control" })%>
+            </div>
           </div>
         </div>
       </div>
@@ -70,3 +85,6 @@
     <% end %>
   </div>
 </div>
+
+<%= render partial: "modals/new_source_incomes" %>
+<%= render partial: "modals/new_kind_incomes" %>

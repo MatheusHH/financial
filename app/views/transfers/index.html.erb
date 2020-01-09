@@ -20,7 +20,10 @@
               <td><%= transfer.receiver.bank %></td>
               <td><%= transfer.value %></td>
               <td><%= transfer.user.name %></td>
-              <td><%= link_to edit_transfer_path(transfer), class: "btn btn-info btn-circle" do %><i class="fa fa-edit"></i><% end %>
+              <td>
+              <% if policy(transfer).show_link_edit? %>
+                <%= link_to edit_transfer_path(transfer), class: "btn btn-info btn-circle" do %><i class="fa fa-edit"></i><% end %>
+              <% end %>
               <%= link_to transfer_path(transfer), method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do  %> <i class="fa fa-trash"></i> <% end %></td>
             </tr>
           <% end %>

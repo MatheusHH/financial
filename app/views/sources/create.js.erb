@@ -1,0 +1,9 @@
+$(function () {
+  <% if @source.errors.any? %>
+	alert("Erros(s): <%= j @source.errors.full_messages.join('; ') %>")
+  <% else %>
+	alert(" Source created");
+	$('#newCategoryModal').modal('hide');
+    window.location.reload();
+  <% end %>
+});

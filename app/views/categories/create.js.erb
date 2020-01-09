@@ -1,0 +1,9 @@
+$(function () {
+  <% if @category.errors.any? %>
+	alert("Erros(s): <%= j @category.errors.full_messages.join('; ') %>")
+  <% else %>
+	alert(" Category created");
+	$('#newCategoryModal').modal('hide');
+    window.location.reload();
+  <% end %>
+});

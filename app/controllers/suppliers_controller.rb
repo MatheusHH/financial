@@ -33,9 +33,11 @@ class SuppliersController < ApplicationController
       if @supplier.save
         format.html { redirect_to suppliers_url, notice: 'Supplier was successfully created.' }
         format.json { render :show, status: :created, location: @supplier }
+        format.js {}
       else
         format.html { render :new }
         format.json { render json: @supplier.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end

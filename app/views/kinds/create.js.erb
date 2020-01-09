@@ -1,0 +1,9 @@
+$(function () {
+  <% if @kind.errors.any? %>
+	alert("Erros(s): <%= j @kind.errors.full_messages.join('; ') %>")
+  <% else %>
+	alert(" Kind created");
+	$('#newCategoryModal').modal('hide');
+    window.location.reload();
+  <% end %>
+});

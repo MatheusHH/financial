@@ -33,9 +33,11 @@ class SourcesController < ApplicationController
       if @source.save
         format.html { redirect_to sources_url, notice: 'Source was successfully created.' }
         format.json { render :show, status: :created, location: @source }
+        format.js {}
       else
         format.html { render :new }
         format.json { render json: @source.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end

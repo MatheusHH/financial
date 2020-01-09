@@ -33,9 +33,11 @@ class KindsController < ApplicationController
       if @kind.save
         format.html { redirect_to kinds_url, notice: 'Kind was successfully created.' }
         format.json { render :show, status: :created, location: @kind }
+        format.js {}
       else
         format.html { render :new }
         format.json { render json: @kind.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end

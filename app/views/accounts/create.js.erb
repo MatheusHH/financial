@@ -1,0 +1,9 @@
+$(function () {
+  <% if @account.errors.any? %>
+	alert("Erros(s): <%= j @account.errors.full_messages.join('; ') %>")
+  <% else %>
+	alert(" Account created");
+	$('#newAccountModal').modal('hide');
+    window.location.reload();
+  <% end %>
+});
