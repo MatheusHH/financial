@@ -26,7 +26,7 @@
 <h3>My Expenses </h3>
 <div class="row">
 	 
-  <div class="col-xl-3 col-sm-6 mb-3">
+  <div class="col-xl-6 col-sm-6 mb-3">
     <div class="card text-white bg-danger shadow p-3 mb-5">
       <div class="card-body">
       	<h5 class="card-title">Value opened</h5>
@@ -44,7 +44,7 @@
     </div>
   </div>
 
-  <div class="col-xl-3 col-sm-6 mb-3">
+  <div class="col-xl-6 col-sm-6 mb-3">
     <div class="card text-white bg-primary shadow p-3 mb-5">
       <div class="card-body">
       	<h5 class="card-title">Value paid</h5>
@@ -62,4 +62,17 @@
     </div>
   </div>
 	
+</div>
+
+<hr>
+<h3>My Cards </h3>
+<div class="row">
+  <% @cards.each do |card| %>
+    <div class="col-xl-12 col-sm-12 mb-3">
+      <h5><%= card.card_name %></h5>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: <%= "#{percent_card(card.balance_card, card.limit_value)}" %>%;" aria-valuenow="<%= percent_card(card.balance_card, card.limit_value) %>" aria-valuemin="0" aria-valuemax="100"><%= percent_card(card.balance_card, card.limit_value) %>%</div>
+      </div>
+    </div>
+  <% end %>
 </div>

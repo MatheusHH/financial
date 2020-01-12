@@ -7,4 +7,9 @@ module HomeHelper
   	  divided_value = 0
   	end
   end
+
+  def percent_card(balance, limit)
+  	percent = (balance * 100) / limit
+  	percent.round(half: :up) 
+  end
 end

@@ -1,0 +1,73 @@
+<div class="card shadow p-3 mb-5">
+  <div class="card-body"> 
+    <%= form_with(model: card, local: true) do |form| %>
+      <% if card.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(card.errors.count, "error") %> prohibited this card from being saved:</h2>
+
+          <ul>
+          <% card.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.label :card_name %>
+            <%= form.text_field :card_name, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.label :closing_date %>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                <%= form.text_field :closing_date, class: "form-control", id: "closing_date" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.label :invoice_date %>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                <%= form.text_field :invoice_date, class: "form-control", id: "invoice_date" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.label :limit_value %>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><%= card.limit_value.currency.symbol %></span>
+                <%= form.text_field :limit_value, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= form.submit t("helpers.submit.create"), class: "btn btn-primary" %>
+        <%= link_to t("actions.back"), cards_path, class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -42,7 +42,7 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-fw fa-folder"></i>
+            <i class="fa fa-fw fa-money"></i>
             <span>Expenses</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
@@ -69,7 +69,7 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-fw fa-folder"></i>
+            <i class="fa fa-fw fa-money"></i>
             <span>Revenues</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
@@ -77,19 +77,19 @@
 
             <div class="dropdown-divider"></div>
             <%= link_to incomes_path, class: "dropdown-item" do %>
-              <i class="fa fa-money"></i>
+              <i class="fa fa-fw fa fa-money"></i>
               <span>Incomes</span>
             <% end %>
 
             <div class="dropdown-divider"></div>
             <%= link_to sources_path, class: "dropdown-item" do %>
-              <i class="fa fa-align-justify"></i>
+              <i class="fa fa-fw fa-align-justify"></i>
               <span>Sources</span>
             <% end %>
 
             <div class="dropdown-divider"></div>
             <%= link_to kinds_path, class: "dropdown-item" do %>
-              <i class="fa fa-clipboard"></i>
+              <i class="fa fa-fw fa-clipboard"></i>
               <span>Kinds</span>
             <% end %>
             
@@ -98,15 +98,22 @@
 
         <li class="nav-item">
           <%= link_to accounts_path, class: "nav-link" do %>
-            <i class="fa fa-briefcase"></i>
+            <i class="fa fa-fw fa-briefcase"></i>
             <span>Accounts</span></a>
           <% end %>
         </li>
 
         <li class="nav-item">
           <%= link_to transfers_path, class: "nav-link" do %>
-            <i class="fa fa-briefcase"></i>
+            <i class="fa fa-fw fa-exchange"></i>
             <span>Transfers</span></a>
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to cards_path, class: "nav-link" do %>
+            <i class="fa fa-fw fa-credit-card"></i>
+            <span>Credit Cards</span></a>
           <% end %>
         </li>
 

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  closing_date: 2020-01-11
+  invoice_date: 2020-01-11
+  limit_value: 1
+  user: one
+
+two:
+  closing_date: 2020-01-11
+  invoice_date: 2020-01-11
+  limit_value: 1
+  user: two

@@ -28,6 +28,9 @@ pt-BR:
       transfer:
         one: Transferência
         other: Transferências
+      card:
+        one: Cartão
+        other: Cartões
 
     attributes:
       user:
@@ -73,4 +76,11 @@ pt-BR:
         sender_account: Conta de origem
         receiver_account: Conta de destino
         value: Valor
+        user: Usuário
+      card:
+        closing_date: Data da fatura
+        invoice_date: Data de vencimento
+        limit_value: Limite
+        balance_card: Saldo 
+        card_name: Bandeira
         user: Usuário

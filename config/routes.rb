@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cards, :except => [:show]
   resources :transfers, :except => [:show]
   resources :kinds, :except => [:show]
   resources :sources, :except => [:show]
