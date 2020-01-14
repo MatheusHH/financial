@@ -1,0 +1,36 @@
+<h1><%= @expense_cards.model_name.human(count: 2) %></h1>
+<div class="card shadow p-3 mb-5">  
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+            <th><%= @expense_cards.human_attribute_name("invoice_date") %></th>
+            <th><%= @expense_cards.human_attribute_name("value") %></th>
+            <th><%= @expense_cards.human_attribute_name("status") %></th>
+            <th><%= @expense_cards.human_attribute_name("card") %></th>
+            <th><%= @expense_cards.human_attribute_name("user") %></th>
+            <th><%= t('helpers.submit.actions') %></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @expense_cards.each do |expense_card| %>
+            <tr>
+              <td><%= expense_card.invoice_date %></td>
+              <td><%= expense_card.value %></td>
+              <td><%= expense_card.status %></td>
+              <td><%= expense_card.card.card_name %></td>
+              <td><%= expense_card.user.name %></td>
+              <td><%= link_to edit_expense_card_path(expense_card), class: "btn btn-info btn-circle" do %><i class="fa fa-edit"></i><% end %>
+              <%= link_to expense_card_path(expense_card), method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do  %> <i class="fa fa-trash"></i> <% end %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+    <%= link_to t('actions.new(a)', model: @expense_cards.model_name.human), new_expense_card_path, class: "btn btn-primary" %>
+  </div>
+</div>

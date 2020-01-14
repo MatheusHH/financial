@@ -10,6 +10,7 @@ module HomeHelper
 
   def percent_card(balance, limit)
   	percent = (balance * 100) / limit
-  	percent.round(half: :up) 
+  	percent = percent.round(half: :up)
+    percent 
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_12_005501) do
+ActiveRecord::Schema.define(version: 2020_01_14_013217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,19 @@ ActiveRecord::Schema.define(version: 2020_01_12_005501) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "expense_cards", force: :cascade do |t|
+    t.date "invoice_date"
+    t.integer "value_cents", default: 0, null: false
+    t.string "value_currency", default: "BRL", null: false
+    t.integer "status"
+    t.bigint "card_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_expense_cards_on_card_id"
+    t.index ["user_id"], name: "index_expense_cards_on_user_id"
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -136,6 +149,8 @@ ActiveRecord::Schema.define(version: 2020_01_12_005501) do
   add_foreign_key "accounts", "users"
   add_foreign_key "cards", "users"
   add_foreign_key "categories", "users"
+  add_foreign_key "expense_cards", "cards"
+  add_foreign_key "expense_cards", "users"
   add_foreign_key "expenses", "accounts"
   add_foreign_key "expenses", "categories"
   add_foreign_key "expenses", "suppliers"

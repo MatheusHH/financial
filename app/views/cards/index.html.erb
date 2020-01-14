@@ -1,5 +1,5 @@
 <h1><%= @cards.model_name.human(count: 2) %></h1>
-<div class="card shadow p-3 mb-5"> 
+<div class="card shadow p-3 mb-5">  
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-hover table-dark">
@@ -11,7 +11,7 @@
             <th><%= @cards.human_attribute_name("balance_card") %></th>
             <th><%= @cards.human_attribute_name("limit_value") %></th>
             <th><%= @cards.human_attribute_name("user") %></th>
-            <th<%= t('helpers.submit.actions') %>></th>
+            <th><%= t('helpers.submit.actions') %></th>
           </tr>
         </thead>
 
@@ -21,8 +21,8 @@
               <td><%= card.card_name %></td>
               <td><%= card.closing_date %></td>
               <td><%= card.invoice_date %></td>
-              <td><%= card.limit_value %></td>
               <td><%= card.balance_card %></td>
+              <td><%= card.limit_value %></td>
               <td><%= card.user.name %></td>
               <td><%= link_to edit_card_path(card), class: "btn btn-info btn-circle" do %><i class="fa fa-edit"></i><% end %>
               <%= link_to card_path(card), method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do  %> <i class="fa fa-trash"></i> <% end %></td>

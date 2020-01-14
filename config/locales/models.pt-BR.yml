@@ -31,6 +31,9 @@ pt-BR:
       card:
         one: Cartão
         other: Cartões
+      expense_card:
+        one: Despesa 
+        other: Despesas
 
     attributes:
       user:
@@ -84,3 +87,9 @@ pt-BR:
         balance_card: Saldo 
         card_name: Bandeira
         user: Usuário
+      expense_card:
+        invoice_date: Data da fatura
+        value: Valor
+        status: Status
+        user: Usuário
+        card_id: Cartão
