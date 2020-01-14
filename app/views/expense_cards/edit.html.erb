@@ -1,6 +1,5 @@
-<h1>Editing Expense Card</h1>
+<h1><%= t('actions.edit', model: @expense_card.model_name.human)%></h1>
 
 <%= render 'form', expense_card: @expense_card %>
 
-<%= link_to 'Show', @expense_card %> |
-<%= link_to 'Back', expense_cards_path %>
+
