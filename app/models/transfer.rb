@@ -9,7 +9,7 @@ class Transfer < ApplicationRecord
   monetize :value_cents
   
 
-  before_save :update_account, on: [:create, ]
+  before_create :update_account
   before_destroy :restore_balance_account
 
   private
