@@ -23,29 +23,19 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="form-group">
-            <%= form.label :closing_date %>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                <%= form.text_field :closing_date, class: "form-control", id: "closing_date" %>
-              </div>
-            </div>
+            <%= form.label :closing_day %>
+            <%= form.select(:closing_day, (1..31).collect {|p| [ p ] }, {prompt: "Fechamento fatura"}, { class: "form-control" })%>
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="form-group">
-            <%= form.label :invoice_date %>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                <%= form.text_field :invoice_date, class: "form-control", id: "invoice_date" %>
-              </div>
-            </div>
+            <%= form.label :invoice_day %>
+            <%= form.select(:invoice_day, (1..31).collect {|p| [ p ] }, {prompt: "Vencimento da fatura"}, { class: "form-control" })%>
           </div>
         </div>
       </div>

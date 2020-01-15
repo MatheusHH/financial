@@ -71,6 +71,6 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:card_name, :closing_date, :invoice_date, :limit_value, :balance_card, :user_id)
+      params.require(:card).permit(:card_name, :closing_day, :invoice_day, :limit_value, :balance_card, :user_id)
     end
 end

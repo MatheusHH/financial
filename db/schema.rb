@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_14_013217) do
+ActiveRecord::Schema.define(version: 2020_01_15_212600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(version: 2020_01_14_013217) do
   end
 
   create_table "cards", force: :cascade do |t|
-    t.date "closing_date"
-    t.date "invoice_date"
     t.integer "limit_value_cents", default: 0, null: false
     t.string "limit_value_currency", default: "BRL", null: false
     t.bigint "user_id"
@@ -38,6 +36,8 @@ ActiveRecord::Schema.define(version: 2020_01_14_013217) do
     t.string "card_name"
     t.integer "balance_card_cents", default: 0, null: false
     t.string "balance_card_currency", default: "BRL", null: false
+    t.integer "closing_day"
+    t.integer "invoice_day"
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 

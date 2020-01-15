@@ -6,8 +6,8 @@
         <thead>
           <tr>
             <th><%= @cards.human_attribute_name("card_name") %></th>
-            <th><%= @cards.human_attribute_name("closing_date") %></th>
-            <th><%= @cards.human_attribute_name("invoice_date") %></th>
+            <th><%= @cards.human_attribute_name("closing_day") %></th>
+            <th><%= @cards.human_attribute_name("invoice_day") %></th>
             <th><%= @cards.human_attribute_name("balance_card") %></th>
             <th><%= @cards.human_attribute_name("limit_value") %></th>
             <th><%= @cards.human_attribute_name("user") %></th>
@@ -19,8 +19,8 @@
           <% @cards.each do |card| %>
             <tr>
               <td><%= card.card_name %></td>
-              <td><%= card.closing_date %></td>
-              <td><%= card.invoice_date %></td>
+              <td><%= card.closing_day %></td>
+              <td><%= card.invoice_day %></td>
               <td><%= card.balance_card %></td>
               <td><%= card.limit_value %></td>
               <td><%= card.user.name %></td>

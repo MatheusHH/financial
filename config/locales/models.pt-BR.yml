@@ -81,8 +81,8 @@ pt-BR:
         value: Valor
         user: Usuário
       card:
-        closing_date: Data da fatura
-        invoice_date: Data de vencimento
+        closing_day: Data da fatura
+        invoice_day: Data de vencimento
         limit_value: Limite
         balance_card: Saldo 
         card_name: Bandeira
