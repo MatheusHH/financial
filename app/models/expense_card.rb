@@ -4,7 +4,7 @@ class ExpenseCard < ApplicationRecord
 
   monetize :value_cents
 
-  after_commit :update_limit_card, on: :create
+  before_create :update_limit_card
   before_destroy :update_limit_card_deteted
 
   private

@@ -13,6 +13,10 @@ class CardPolicy < ApplicationPolicy
   	record.user_id == user.id
   end
 
+  def show?
+    record.user_id == user.id
+  end
+
   def edit?
   	record.user_id == user.id
   end

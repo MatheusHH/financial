@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="card shadow p-3 mb-5">  
+  <div class="card-body">
+	<div class="table-responsive">
+	  <table class="table table-hover table-dark">
+	    <thead>
+	      <tr>
+	      	<th><%= @card_expenses.human_attribute_name("value") %></th>
+	        <th><%= @card_expenses.human_attribute_name("card_id") %></th>
+	        <th><%= @card_expenses.human_attribute_name("invoice_date") %></th>
+	      </tr>
+	    </thead>
 
-<p>
-  <strong>Closing date:</strong>
-  <%= @card.closing_date %>
-</p>
+	    <tbody>
+	      <% @card_expenses.each do |card_expense| %>
+	        <tr>
+	          <td><%= humanized_money_with_symbol card_expense.value %></td>
+	          <td><%= card_expense.card.card_name %></td>
+	          <td><%= card_expense.invoice_date %></td>
+	        </tr>
+	      <% end %>
+	    </tbody>
+	  </table>
+	  <h6 class="text-center">Total Invoice <%= humanized_money_with_symbol sum_invoice(@card_expenses) %></h6>
+	</div>
+  </div>
+</div>
 
-<p>
-  <strong>Invoice date:</strong>
-  <%= @card.invoice_date %>
-</p>
-
-<p>
-  <strong>Limit value:</strong>
-  <%= @card.limit_value %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @card.user %>
-</p>
-
-<%= link_to 'Edit', edit_card_path(@card) %> |
-<%= link_to 'Back', cards_path %>
+<%= link_to t("actions.back"), cards_path, class: "btn btn-success" %>

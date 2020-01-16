@@ -1,4 +1,6 @@
 class ExpenseCardsController < ApplicationController
+  before_action :authenticate_user!
+  
   before_action :set_expense_card, only: [:show, :edit, :update, :destroy]
 
   # GET /expense_cards

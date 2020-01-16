@@ -1,5 +1,8 @@
 class CardsController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_card, only: [:show, :edit, :update, :destroy]
+  before_action :load_expenses_card_current_month, only: [:show]
 
   # GET /cards
   # GET /cards.json
@@ -10,6 +13,8 @@ class CardsController < ApplicationController
   # GET /cards/1
   # GET /cards/1.json
   def show
+    authorize @card
+    @card = Card.find(params[:id])
   end
 
   # GET /cards/new
@@ -67,6 +72,12 @@ class CardsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_card
       @card = Card.find(params[:id])
+    end
+
+    def load_expenses_card_current_month
+      end_date = (Date.current.beginning_of_month + @card.closing_day.days) - 1.day
+      initial_date = (end_date - 1.month)
+      @card_expenses = ExpenseCard.joins(:card).where("expense_cards.invoice_date between ? and ?", initial_date, end_date) 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

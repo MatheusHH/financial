@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :expense_cards, :except => [:show] 
-  resources :cards, :except => [:show]
+  resources :cards
   resources :transfers, :except => [:show]
   resources :kinds, :except => [:show]
   resources :sources, :except => [:show]
