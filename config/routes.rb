@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'invoice/index'
   resources :expense_cards, :except => [:show] 
   resources :cards
   resources :transfers, :except => [:show]

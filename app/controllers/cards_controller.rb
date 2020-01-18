@@ -75,7 +75,7 @@ class CardsController < ApplicationController
     end
 
     def load_expenses_card_current_month
-      end_date = (Date.current.beginning_of_month + @card.closing_day.days) - 2.day
+      end_date = (Date.current.beginning_of_month + @card.closing_day.days) - 2.days
       initial_date = (end_date - 1.month)
       @card_expenses = ExpenseCard.joins(:card).where(user_id: current_user).where("expense_cards.invoice_date between ? and ?", initial_date, end_date) 
     end
