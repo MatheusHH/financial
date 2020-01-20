@@ -117,7 +117,8 @@ pt-BR:
  
   helpers:
     submit:
-      create: "Salvar"
+      create: Salvar
       actions: Ações
+      search: Buscar
  
   confirm: Você tem certeza?

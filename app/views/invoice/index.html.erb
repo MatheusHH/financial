@@ -5,17 +5,17 @@
         <div class="col-sm-4">
           <div class="form-group">
 	  		<!--<%= date_select(:date, "date", discard_day: true) %>-->
-	  		<%= text_field_tag :date, "Vencimento fatura", class: "form-control", id: "invoice_date" %>
+	  		<%= text_field_tag :date, "Fechamento fatura", class: "form-control", id: "invoice_date" %>
 	  	  </div>
 	  	</div>
 	  	<div class="col-sm-4">
           <div class="form-group">
-	  		<%= select_tag(:card_id, options_from_collection_for_select(@cards, "id", "card_name"), prompt: "Selecione o cartão", class: "form-control") %>
+	  		<%= select_tag(:card_id, options_from_collection_for_select(@cards, "id", "card_name"), include_blank: true, prompt: "Selecione o cartão", class: "form-control") %>
 	  	  </div>
 	    </div>
 	    <div class="col-sm-4">
           <div class="form-group">
-	        <%= submit_tag "Search", class: "btn btn-primary" %>
+	        <%= submit_tag t("helpers.submit.search"), class: "btn btn-primary" %>
 	      </div>
 	    </div>
 	  </div>
@@ -27,9 +27,10 @@
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-hover table-dark">
+        <% unless @expense_cards.nil? %>
         <thead>
           <tr>
-            <th><%= @expense_cards.human_attribute_name("value") %></th>
+          <th><%= @expense_cards.human_attribute_name("value") %></th>
 	        <th><%= @expense_cards.human_attribute_name("card_id") %></th>
 	        <th><%= @expense_cards.human_attribute_name("invoice_date") %></th>
           </tr>
@@ -38,13 +39,15 @@
         <tbody>
           <% @expense_cards.each do |expense| %>
             <tr>
-              <td><%= humanized_money_with_symbol expense.value %></td>
+            <td><%= humanized_money_with_symbol expense.value %></td>
 	          <td><%= expense.card.card_name %></td>
 	          <td><%= expense.invoice_date %></td>    
             </tr>
           <% end %>
         </tbody>
+        <% end %>
       </table>
+      <h6>Total: <%= humanized_money_with_symbol sum_invoice(@expense_cards) %></h6>
     </div>
   </div>
 </div>
