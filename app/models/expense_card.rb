@@ -2,11 +2,15 @@ class ExpenseCard < ApplicationRecord
   belongs_to :card
   belongs_to :user
 
+  enum status: [ :pendente, :pago ]
+
   monetize :value_cents
 
   before_create :update_limit_card_create
   before_update :update_limit_card_update
   before_destroy :update_limit_card_deteted
+
+  before_validation :set_status, on: :create
 
   private
 
@@ -44,5 +48,9 @@ class ExpenseCard < ApplicationRecord
     value_to_be_restored = self.value_cents
     card.balance_card_cents += value_to_be_restored
     card.update(balance_card_cents: card.balance_card_cents) 
+  end
+
+  def set_status
+    self.status = "pendente"
   end
 end

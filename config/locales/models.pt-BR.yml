@@ -91,7 +91,7 @@ pt-BR:
         card_name: Bandeira
         user: Usuário
       expense_card:
-        invoice_date: Data da fatura
+        invoice_date: Data do lançamento
         value: Valor
         status: Status
         user: Usuário
