@@ -1,7 +1,8 @@
 class Account < ApplicationRecord
   belongs_to :user
   has_many :expenses
-
+  has_many :payment_cards
+  
   monetize :balance_cents
  
   has_many :senders, class_name: "Transfer",

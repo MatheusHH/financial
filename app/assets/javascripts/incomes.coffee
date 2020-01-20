@@ -9,5 +9,5 @@
 $(document).on 'turbolinks:load', ->
   $('#datepicker').datepicker
     locale: 'pt-br'
-    format: 'YYYY-MM-DD hh:mm'
+    format: 'YYYY-MM-DD'
   return

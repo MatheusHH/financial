@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  invoice_payment_date: 2020-01-20
+  value: 1
+  card: one
+  account: one
+  user: one
+
+two:
+  invoice_payment_date: 2020-01-20
+  value: 1
+  card: two
+  account: two
+  user: two

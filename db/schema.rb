@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_15_212600) do
+ActiveRecord::Schema.define(version: 2020_01_20_204901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,20 @@ ActiveRecord::Schema.define(version: 2020_01_15_212600) do
     t.index ["user_id"], name: "index_kinds_on_user_id"
   end
 
+  create_table "payment_cards", force: :cascade do |t|
+    t.date "invoice_payment_date"
+    t.integer "value_cents", default: 0, null: false
+    t.string "value_currency", default: "BRL", null: false
+    t.bigint "card_id"
+    t.bigint "account_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_payment_cards_on_account_id"
+    t.index ["card_id"], name: "index_payment_cards_on_card_id"
+    t.index ["user_id"], name: "index_payment_cards_on_user_id"
+  end
+
   create_table "sources", force: :cascade do |t|
     t.string "name"
     t.string "phone"
@@ -160,6 +174,9 @@ ActiveRecord::Schema.define(version: 2020_01_15_212600) do
   add_foreign_key "incomes", "sources"
   add_foreign_key "incomes", "users"
   add_foreign_key "kinds", "users"
+  add_foreign_key "payment_cards", "accounts"
+  add_foreign_key "payment_cards", "cards"
+  add_foreign_key "payment_cards", "users"
   add_foreign_key "sources", "users"
   add_foreign_key "suppliers", "users"
   add_foreign_key "transfers", "users"

@@ -2,12 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+
 //= require jquery-ui/widgets/datepicker
 //= require jquery-ui/i18n/datepicker-pt-BR
 
-
 $(document).on 'turbolinks:load', ->
-  $('#datepicker').datepicker
+  $('#invoice_payment_date').datepicker
     locale: 'pt-br'
     format: 'YYYY-MM-DD'
   return

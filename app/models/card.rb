@@ -1,8 +1,9 @@
 class Card < ApplicationRecord
   belongs_to :user
 
-  has_many :expense_cards, dependent: :destroy
-  
+  has_many :expense_cards
+  has_many :payment_cards
+
   monetize :limit_value_cents
   monetize :balance_card_cents
 

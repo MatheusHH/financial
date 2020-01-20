@@ -13,5 +13,6 @@ class User < ApplicationRecord
   has_many :incomes, dependent: :destroy
   has_many :cards, dependent: :destroy
   has_many :expense_cards, dependent: :destroy
+  has_many :payment_cards, dependent: :destroy
   
 end

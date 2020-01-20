@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Invoice payment date:</strong>
+  <%= @payment_card.invoice_payment_date %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @payment_card.value %>
+</p>
+
+<p>
+  <strong>Card:</strong>
+  <%= @payment_card.card %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @payment_card.account %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @payment_card.user %>
+</p>
+
+<%= link_to 'Edit', edit_payment_card_path(@payment_card) %> |
+<%= link_to 'Back', payment_cards_path %>

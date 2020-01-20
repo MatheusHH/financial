@@ -34,6 +34,9 @@ pt-BR:
       expense_card:
         one: Despesa 
         other: Despesas
+      payment_card:
+        one: Pagamento de cartão
+        other: Pagamento de cartões
 
     attributes:
       user:
@@ -93,3 +96,9 @@ pt-BR:
         status: Status
         user: Usuário
         card_id: Cartão
+      payment_card:
+        invoice_payment_date: Fechamento fatura
+        value: Valor
+        account_id: Conta
+        card_id: Cartão
+        user: Usuário

@@ -1,5 +1,7 @@
 class Income < ApplicationRecord
   belongs_to :user
+  belongs_to :source
+  belongs_to :kind
 
   monetize :value_cents
 
