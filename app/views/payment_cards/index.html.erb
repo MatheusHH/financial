@@ -19,10 +19,13 @@
             <tr>
               <td><%= payment_card.invoice_payment_date %></td>
               <td><%= payment_card.value %></td>
-              <td><%= payment_card.card %></td>
-              <td><%= payment_card.account %></td>
-              <td><%= payment_card.user %></td>
-              <td><%= link_to edit_payment_card_path(payment_card), class: "btn btn-info btn-circle" do %><i class="fa fa-edit"></i><% end %>
+              <td><%= payment_card.card.card_name %></td>
+              <td><%= payment_card.account.bank %></td>
+              <td><%= payment_card.user.name %></td>
+              <td>
+              <% if policy(payment_card).show_link_edit? %>
+              <%= link_to edit_payment_card_path(payment_card), class: "btn btn-info btn-circle" do %><i class="fa fa-edit"></i><% end %> 
+                <% end %>
               <%= link_to payment_card_path(payment_card), method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do  %> <i class="fa fa-trash"></i> <% end %></td>
             </tr>
           <% end %>

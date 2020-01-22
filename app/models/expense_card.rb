@@ -25,12 +25,12 @@ class ExpenseCard < ApplicationRecord
   	  	raise ActiveRecord::RecordInvalid.new(self)
   	  end
   	end
-  end
-
+  end 
+ 
   def update_limit_card_update
     if self.card_id.present?
       card = Card.find(self.card_id)
-      if self.value_cents_changed?
+      if self.value_cents_changed? && self.pendente?
         card.balance_card_cents += self.value_cents_was
         if card.balance_card_cents >= self.value_cents_change[1]
           card.balance_card_cents -= self.value_cents_change[1]
@@ -39,15 +39,26 @@ class ExpenseCard < ApplicationRecord
           self.errors.add :base, "There is not balance available" 
           raise ActiveRecord::RecordInvalid.new(self)
         end
+      elsif self.invoice_date_changed? && self.pago?
+        self.errors.add :base, "There expense is paid, you need to remove payment to open it" 
+        raise ActiveRecord::RecordInvalid.new(self)
+      elsif self.value_cents_changed? && self.pago?
+        self.errors.add :base, "There expense is paid, you need to remove payment to open it" 
+        raise ActiveRecord::RecordInvalid.new(self)
       end
     end
   end
 
   def update_limit_card_deteted
-    card = Card.find(self.card_id)
-    value_to_be_restored = self.value_cents
-    card.balance_card_cents += value_to_be_restored
-    card.update(balance_card_cents: card.balance_card_cents) 
+    if self.pendente?
+      card = Card.find(self.card_id)
+      value_to_be_restored = self.value_cents
+      card.balance_card_cents += value_to_be_restored
+      card.update(balance_card_cents: card.balance_card_cents)
+    else
+      self.errors.add :base, "You need to remove the payment before delete this expense" 
+      raise ActiveRecord::RecordInvalid.new(self)
+    end 
   end
 
   def set_status
