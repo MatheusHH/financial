@@ -1,0 +1,78 @@
+<div class="modal fade" id="newPaymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= t("actions.new", model: @payment_card.model_name.human) %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_with(model: @payment_card, remote: true) do |form| %>
+          <% if @payment_card.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@payment_card.errors.count, "error") %> prohibited this @payment_card from being saved:</h2>
+
+              <ul>
+              <% @payment_card.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= form.label :invoice_payment_date %>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                    <%= form.text_field :invoice_payment_date, class: "form-control", id: "invoice_payment_date" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= form.label :value %>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><%= @payment_card.value.currency.symbol %></span>
+                    <%= form.text_field :value, class: "form-control" %>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+
+          <div class="row">
+            <div class="col-sm-10">
+              <div class="form-group">
+                <%= form.label :card_id %>
+                <%= form.select(:card_id, Card.where(user_id: current_user.id ).collect {|p| [ p.card_name, p.id ] }, {prompt: "Selecione o cartão para débito"}, { class: "form-control" })%>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-10">
+              <div class="form-group">
+                <%= form.label :account_id %>
+                <%= form.select(:account_id, Account.where(user_id: current_user.id ).collect {|p| [ p.bank, p.id ] }, {prompt: "Selecione a conta para débito"}, { class: "form-control" })%>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <%= form.submit t("helpers.submit.create"), class: "btn btn-primary" %>
+            <%= link_to t("actions.back"), payment_cards_path, class: "btn btn-success" %>
+          </div>
+        <% end %>              
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+$(function () {
+  <% if @payment_card.errors.any? %>
+	alert("Erros(s): <%= j @payment_card.errors.full_messages.join('; ') %>")
+  <% else %>
+	alert(" Payment created");
+	$('#newPaymentModal').modal('hide');
+    window.location.reload();
+  <% end %>
+});

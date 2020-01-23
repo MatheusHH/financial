@@ -1,6 +1,7 @@
 class InvoiceController < ApplicationController
   before_action :authenticate_user!
   before_action :load_cards, only: [:index]
+  before_action :load_payment_card, only: [:index]
 
   def index
   	if params[:date].present? && params[:card_id].present?
@@ -16,5 +17,9 @@ class InvoiceController < ApplicationController
 
   def load_cards
   	@cards = policy_scope(Card).all
+  end
+
+  def load_payment_card
+    @payment_card = PaymentCard.new
   end
 end

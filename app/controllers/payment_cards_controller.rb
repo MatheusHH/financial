@@ -31,9 +31,11 @@ class PaymentCardsController < ApplicationController
       if @payment_card.save
         format.html { redirect_to payment_cards_url, notice: 'Payment card was successfully created.' }
         format.json { render :show, status: :created, location: @payment_card }
+        format.js {}
       else
         format.html { render :new }
         format.json { render json: @payment_card.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end

@@ -32,15 +32,17 @@
           <tr>
           <th><%= @expense_cards.human_attribute_name("value") %></th>
 	        <th><%= @expense_cards.human_attribute_name("card_id") %></th>
+          <th><%= @expense_cards.human_attribute_name("status") %></th>
 	        <th><%= @expense_cards.human_attribute_name("invoice_date") %></th>
           </tr>
         </thead>
 
-        <tbody>
+        <tbody> 
           <% @expense_cards.each do |expense| %>
             <tr>
             <td><%= humanized_money_with_symbol expense.value %></td>
 	          <td><%= expense.card.card_name %></td>
+            <td><%= expense.status %></td>
 	          <td><%= expense.invoice_date %></td>    
             </tr>
           <% end %>
@@ -51,3 +53,8 @@
     </div>
   </div>
 </div>
+
+<%= link_to new_payment_card_path, class: "btn btn-outline-secondary", remote: true do %> <i class="fa fa-plus"></i> Payment</span><% end %>
+<hr>
+
+<%= render partial: "modals/new_payment_invoice" %>
