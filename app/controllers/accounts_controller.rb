@@ -31,7 +31,7 @@ class AccountsController < ApplicationController
     @account.user = current_user
     respond_to do |format|
       if @account.save
-        format.html { redirect_to accounts_url, notice: 'Account was successfully created.' }
+        format.html { redirect_to accounts_url, notice: t('flash.actions.create.notice', model: @account.model_name.human) }
         format.json { render :show, status: :created, location: @account }
         format.js {}
       else
@@ -47,7 +47,7 @@ class AccountsController < ApplicationController
   def update
     respond_to do |format|
       if @account.update(account_params)
-        format.html { redirect_to accounts_url, notice: 'Account was successfully updated.' }
+        format.html { redirect_to accounts_url, notice: t('flash.actions.update.notice', model: @account.model_name.human) }
         format.json { render :show, status: :ok, location: @account }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class AccountsController < ApplicationController
     authorize @account
     @account.destroy
     respond_to do |format|
-      format.html { redirect_to accounts_url, notice: 'Account was successfully destroyed.' }
+      format.html { redirect_to accounts_url, notice: t('flash.actions.destroy.notice') }
       format.json { head :no_content }
     end
   end

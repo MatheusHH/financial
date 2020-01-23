@@ -32,7 +32,7 @@ class IncomesController < ApplicationController
     @income.user = current_user
     respond_to do |format|
       if @income.save
-        format.html { redirect_to incomes_url, notice: 'Income was successfully created.' }
+        format.html { redirect_to incomes_url, notice: t('flash.actions.create.notice', model: @income.model_name.human) }
         format.json { render :show, status: :created, location: @income }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class IncomesController < ApplicationController
   def update
     respond_to do |format|
       if @income.update(income_params)
-        format.html { redirect_to incomes_url, notice: 'Income was successfully updated.' }
+        format.html { redirect_to incomes_url, notice: t('flash.actions.update.notice', model: @income.model_name.human) }
         format.json { render :show, status: :ok, location: @income }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class IncomesController < ApplicationController
     authorize @income
     @income.destroy
     respond_to do |format|
-      format.html { redirect_to incomes_url, notice: 'Income was successfully destroyed.' }
+      format.html { redirect_to incomes_url, notice: t('flash.actions.destroy.notice') } 
       format.json { head :no_content }
     end
   end

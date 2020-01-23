@@ -33,7 +33,7 @@ class TransfersController < ApplicationController
     @transfer.user = current_user
     respond_to do |format|
       if @transfer.save
-        format.html { redirect_to transfers_url, notice: 'Transfer was successfully created.' }
+        format.html { redirect_to transfers_url, notice: t('flash.actions.create.notice', model: @transfer.model_name.human) }
         format.json { render :show, status: :created, location: @transfer }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class TransfersController < ApplicationController
   def update
     respond_to do |format|
       if @transfer.update(transfer_params)
-        format.html { redirect_to transfers_url, notice: 'Transfer was successfully updated.' }
+        format.html { redirect_to transfers_url, notice: t('flash.actions.update.notice', model: @transfer.model_name.human) }
         format.json { render :show, status: :ok, location: @transfer }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class TransfersController < ApplicationController
     authorize @transfer
     @transfer.destroy
     respond_to do |format|
-      format.html { redirect_to transfers_url, notice: 'Transfer was successfully destroyed.' }
+      format.html { redirect_to transfers_url, notice: t('flash.actions.destroy.notice') }
       format.json { head :no_content }
     end
   end

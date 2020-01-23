@@ -29,7 +29,7 @@ class PaymentCardsController < ApplicationController
     @payment_card.user = current_user
     respond_to do |format|
       if @payment_card.save
-        format.html { redirect_to payment_cards_url, notice: 'Payment card was successfully created.' }
+        format.html { redirect_to payment_cards_url, notice: t('flash.actions.create.notice', model: @payment_card.model_name.human) }
         format.json { render :show, status: :created, location: @payment_card }
         format.js {}
       else
@@ -45,7 +45,7 @@ class PaymentCardsController < ApplicationController
   def update
     respond_to do |format|
       if @payment_card.update(payment_card_params)
-        format.html { redirect_to payment_cards_url, notice: 'Payment card was successfully updated.' }
+        format.html { redirect_to payment_cards_url, notice: t('flash.actions.update.notice', model: @payment_card.model_name.human) }
         format.json { render :show, status: :ok, location: @payment_card }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class PaymentCardsController < ApplicationController
     authorize @payment_card
     @payment_card.destroy
     respond_to do |format|
-      format.html { redirect_to payment_cards_url, notice: 'Payment card was successfully destroyed.' }
+      format.html { redirect_to payment_cards_url, notice: t('flash.actions.destroy.notice') } 
       format.json { head :no_content }
     end
   end

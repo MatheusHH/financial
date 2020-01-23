@@ -31,7 +31,7 @@ class SuppliersController < ApplicationController
     @supplier.user = current_user
     respond_to do |format|
       if @supplier.save
-        format.html { redirect_to suppliers_url, notice: 'Supplier was successfully created.' }
+        format.html { redirect_to suppliers_url, notice: t('flash.actions.create.notice', model: @supplier.model_name.human) }
         format.json { render :show, status: :created, location: @supplier }
         format.js {}
       else
@@ -47,7 +47,7 @@ class SuppliersController < ApplicationController
   def update
     respond_to do |format|
       if @supplier.update(supplier_params)
-        format.html { redirect_to suppliers_url, notice: 'Supplier was successfully updated.' }
+        format.html { redirect_to suppliers_url, notice: t('flash.actions.update.notice', model: @supplier.model_name.human) }
         format.json { render :show, status: :ok, location: @supplier }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class SuppliersController < ApplicationController
     authorize @supplier
     @supplier.destroy
     respond_to do |format|
-      format.html { redirect_to suppliers_url, notice: 'Supplier was successfully destroyed.' }
+      format.html { redirect_to suppliers_url, notice: t('flash.actions.destroy.notice') } 
       format.json { head :no_content }
     end
   end

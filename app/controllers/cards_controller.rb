@@ -34,7 +34,7 @@ class CardsController < ApplicationController
     @card.user = current_user
     respond_to do |format|
       if @card.save
-        format.html { redirect_to cards_url, notice: 'Card was successfully created.' }
+        format.html { redirect_to cards_url, notice: t('flash.actions.create.notice', model: @card.model_name.human) }
         format.json { render :show, status: :created, location: @card }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class CardsController < ApplicationController
   def update
     respond_to do |format|
       if @card.update(card_params)
-        format.html { redirect_to cards_url, notice: 'Card was successfully updated.' }
+        format.html { redirect_to cards_url, notice: t('flash.actions.update.notice', model: @card.model_name.human) }
         format.json { render :show, status: :ok, location: @card }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class CardsController < ApplicationController
     authorize @card
     @card.destroy
     respond_to do |format|
-      format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
+      format.html { redirect_to cards_url, notice: t('flash.actions.destroy.notice') }
       format.json { head :no_content }
     end
   end

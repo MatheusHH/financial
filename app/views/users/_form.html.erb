@@ -68,9 +68,9 @@
           <div class="form-group">
             <%= form.submit "Save", class: "btn btn-primary" %>
             <% unless policy(current_user).redirect_form? %>
-              <%= link_to 'Back', home_index_path, class: "btn btn-success" %>
+              <%= link_to t("actions.back"), home_index_path, class: "btn btn-success" %>
             <% else %>
-              <%= link_to 'Back', users_path, class: "btn btn-primary" %>
+              <%= link_to t("actions.back"), users_path, class: "btn btn-primary" %>
             <% end %>
           </div>
         </div>

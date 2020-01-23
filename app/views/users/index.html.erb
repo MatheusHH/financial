@@ -25,7 +25,7 @@
     </div>
     <br>
 
-    <%= link_to 'New User', new_user_path, class: "btn btn-primary" %>
+    <%= link_to t('actions.new', model: @users.model_name.human), new_user_path, class: "btn btn-primary" %>
   </div>
 </div>
 

@@ -16,8 +16,8 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
     authorize @user
+    @user = User.new
   end
 
   # GET /users/1/edit
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_url, notice: 'User was successfully created.' }
+        format.html { redirect_to users_url, notice: t('flash.actions.create.notice', model: @user.model_name.human) }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_url, notice: 'User was successfully updated.' }
+        format.html { redirect_to users_url, notice: t('flash.actions.update.notice', model: @user.model_name.human) }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     authorize @user
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: t('flash.actions.destroy.notice') }
       format.json { head :no_content }
     end
   end

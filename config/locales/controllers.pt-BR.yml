@@ -1,0 +1,10 @@
+pt-BR:
+  flash:
+    actions:
+      create:
+        notice: "%{model} criado com sucesso !"
+      update:
+        notice: "%{model} foi atualizado com sucesso !"
+      destroy:
+        notice: "Apagado com sucesso !"
+        alert: "Registro não pode ser destruído !"

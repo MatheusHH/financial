@@ -49,12 +49,12 @@
         </tbody>
         <% end %>
       </table>
-      <h6>Total: <%= humanized_money_with_symbol sum_invoice(@expense_cards) %></h6>
+      <h6 class="text-center">Total: <%= humanized_money_with_symbol sum_invoice(@expense_cards) %></h6>
     </div>
   </div>
 </div>
 
-<%= link_to new_payment_card_path, class: "btn btn-outline-secondary", remote: true do %> <i class="fa fa-plus"></i> Payment</span><% end %>
+<%= link_to new_payment_card_path, class: "btn btn-outline-secondary", remote: true do %> <i class="fa fa-plus"></i> <%= t('helpers.submit.payment')%></span><% end %>
 <hr>
 
 <%= render partial: "modals/new_payment_invoice" %>

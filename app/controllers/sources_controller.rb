@@ -31,7 +31,7 @@ class SourcesController < ApplicationController
     @source.user = current_user
     respond_to do |format|
       if @source.save
-        format.html { redirect_to sources_url, notice: 'Source was successfully created.' }
+        format.html { redirect_to sources_url, notice: t('flash.actions.create.notice', model: @source.model_name.human) }
         format.json { render :show, status: :created, location: @source }
         format.js {}
       else
@@ -47,7 +47,7 @@ class SourcesController < ApplicationController
   def update
     respond_to do |format|
       if @source.update(source_params)
-        format.html { redirect_to sources_url, notice: 'Source was successfully updated.' }
+        format.html { redirect_to sources_url, notice: t('flash.actions.update.notice', model: @source.model_name.human) }
         format.json { render :show, status: :ok, location: @source }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class SourcesController < ApplicationController
     authorize @source
     @source.destroy
     respond_to do |format|
-      format.html { redirect_to sources_url, notice: 'Source was successfully destroyed.' }
+      format.html { redirect_to sources_url, notice: t('flash.actions.destroy.notice') }
       format.json { head :no_content }
     end
   end

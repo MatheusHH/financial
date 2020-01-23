@@ -120,5 +120,26 @@ pt-BR:
       create: Salvar
       actions: Ações
       search: Buscar
+      payment: Pagamento
  
   confirm: Você tem certeza?
+
+  views: 
+    user: Usuários
+    expense: Despesas
+    supplier: Recebedores
+    category: Categorias 
+    expenses: Lista de Despesas
+    revenue: Receitas
+    income: Lista de Receitas
+    source: Pagadores
+    kind: Categorias
+    card: Cartões
+    credit_card: Lista de Cartões
+    expense_card: Despesas de Cartões
+    invoice: Consulta de faturas
+    payment_card: Pag. de Cartões
+    account: Contas
+    transfer: Transferências
+    chart: Gráficos
+    option: Opções

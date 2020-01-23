@@ -9,7 +9,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Blank Page</title>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -35,7 +34,7 @@
           <% if policy(current_user).index? %>
             <%= link_to users_path, class: "nav-link" do %>
               <i class="fa fa-users"></i>
-              <span>Usuários</span>
+              <span><%= t('views.user')%></span>
             <% end %>
           <% end %>
         </li>
@@ -43,23 +42,23 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-fw fa-money"></i>
-            <span>Expenses</span>
+            <span><%= t('views.expense')%></span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Options:</h6>
+            <h6 class="dropdown-header"><%= t('views.option')%>:</h6>
             <div class="dropdown-divider"></div>
             <%= link_to suppliers_path, class: "dropdown-item" do %>
-              <span>Suppliers</span>
+              <span><%= t('views.supplier')%></span>
             <% end %>
 
             <div class="dropdown-divider"></div>
             <%= link_to categories_path, class: "dropdown-item" do %>
-              <span>Categories</span>
+              <span><%= t('views.category')%></span>
             <% end %>
 
             <div class="dropdown-divider"></div>
             <%= link_to expenses_path, class: "dropdown-item" do %>
-              <span>Expenses</span>
+              <span><%= t('views.expense')%></span>
             <% end %>
             
           </div>
@@ -68,24 +67,24 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-fw fa-money"></i>
-            <span>Revenues</span>
+            <span><%= t('views.revenue')%></span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Options:</h6>
+            <h6 class="dropdown-header"><%= t('views.option')%>:</h6>
 
             <div class="dropdown-divider"></div>
             <%= link_to incomes_path, class: "dropdown-item" do %>
-              <span>Incomes</span>
+              <span><%= t('views.income')%></span>
             <% end %>
 
             <div class="dropdown-divider"></div>
             <%= link_to sources_path, class: "dropdown-item" do %>
-              <span>Sources</span>
+              <span><%= t('views.source')%></span>
             <% end %>
 
             <div class="dropdown-divider"></div>
             <%= link_to kinds_path, class: "dropdown-item" do %>
-              <span>Kinds</span>
+              <span><%= t('views.kind')%></span>
             <% end %>
             
           </div>
@@ -94,29 +93,29 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-fw fa-credit-card"></i>
-            <span>Cards</span>
+            <span><%= t('views.card')%></span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Options:</h6>
+            <h6 class="dropdown-header"><%= t('views.option')%>:</h6>
             <div class="dropdown-divider"></div>  
             <%= link_to cards_path, class: "dropdown-item" do %>
-              <span>Credit Cards</span></a>
+              <span><%= t('views.credit_card')%></span></a>
             <% end %>
           
 
             <div class="dropdown-divider"></div>
             <%= link_to expense_cards_path, class: "dropdown-item" do %>
-              <span>Expense Cards</span></a>
+              <span><%= t('views.expense_card')%></span></a>
             <% end %> 
 
             <div class="dropdown-divider"></div>
             <%= link_to invoice_index_path, class: "dropdown-item" do %>
-              <span>Invoices</span></a>
+              <span><%= t('views.invoice')%></span></a>
             <% end %>
 
             <div class="dropdown-divider"></div>
             <%= link_to payment_cards_path, class: "dropdown-item" do %>
-              <span>Payment Cards</span></a>
+              <span><%= t('views.payment_card')%></span></a>
             <% end %>
 
           </div>
@@ -125,21 +124,21 @@
         <li class="nav-item">
           <%= link_to accounts_path, class: "nav-link" do %>
             <i class="fa fa-fw fa-briefcase"></i>
-            <span>Accounts</span></a>
+            <span><%= t('views.account')%></span></a>
           <% end %>
         </li>
 
         <li class="nav-item">
           <%= link_to transfers_path, class: "nav-link" do %>
             <i class="fa fa-fw fa-exchange"></i>
-            <span>Transfers</span></a>
+            <span><%= t('views.transfer')%></span></a>
           <% end %>
         </li>
 
         <li class="nav-item">
           <a class="nav-link" href="charts.html">
             <i class="fa fa-fw fa-area-chart"></i>
-            <span>Gráficos</span></a>
+            <span><%= t('views.chart')%></span></a>
         </li>
 
       </ul>
