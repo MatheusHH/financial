@@ -136,9 +136,10 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <%= link_to charts_index_path, class: "nav-link" do %>
             <i class="fa fa-fw fa-area-chart"></i>
-            <span><%= t('views.chart')%></span></a>
+            <span><%= t('views.chart')%></span>
+          <% end %>
         </li>
 
       </ul>

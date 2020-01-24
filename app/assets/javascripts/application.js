@@ -18,6 +18,8 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require sb-admin
+//= require chartkick
+//= require Chart.bundle
 
 /* Spin */
 $(document).on("turbolinks:click", function(){
