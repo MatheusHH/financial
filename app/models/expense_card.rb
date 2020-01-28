@@ -12,6 +12,9 @@ class ExpenseCard < ApplicationRecord
 
   before_validation :set_status, on: :create
 
+  validates :invoice_date, presence: true
+  validates :card_id, presence: true
+
   private
 
   def update_limit_card_create

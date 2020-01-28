@@ -8,6 +8,9 @@ class PaymentCard < ApplicationRecord
   before_create :update_card_and_account_balance
   before_destroy :restore_card_balance
 
+  validates :invoice_payment_date, presence: true
+  validates :card_id, :account_id, presence: true
+
   private
 
   def update_card_and_account_balance

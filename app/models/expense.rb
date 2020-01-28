@@ -13,6 +13,9 @@ class Expense < ApplicationRecord
 
   before_destroy :restore_balance
 
+  validates :duedate, :status, presence: true
+  validates :account_id, :category_id, :supplier_id, presence: true
+
 
   private
 

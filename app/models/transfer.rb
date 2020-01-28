@@ -12,6 +12,9 @@ class Transfer < ApplicationRecord
   before_create :update_account
   before_destroy :restore_balance_account
 
+  validates :value, numericality: { greater_than_or_equal_to: 1 }
+  validates :sender_account, :receiver_account, presence: true
+
   private
 
   def update_account

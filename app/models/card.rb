@@ -9,6 +9,9 @@ class Card < ApplicationRecord
 
   before_create :set_initial_balance
 
+  validates :card_name, presence: true
+  validates :invoice_day, :closing_day, numericality: { greater_than_or_equal_to: 1 }
+
   private
 
   def set_initial_balance

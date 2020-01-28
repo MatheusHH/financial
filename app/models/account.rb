@@ -9,4 +9,6 @@ class Account < ApplicationRecord
                           foreign_key: "sender_account"
   has_many :receivers, class_name: "Transfer",
                           foreign_key: "receiver_account"
+
+  validates :bank, presence: true
 end

@@ -8,6 +8,10 @@ class Income < ApplicationRecord
   before_create :update_account_balance_create
   before_update :update_balances_update 
 
+  validates :receipt_date, presence: true
+
+  validates :account_id, :source_id, :kind_id, presence: true
+
   private
 
   def update_account_balance_create 
