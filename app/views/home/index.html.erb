@@ -1,4 +1,4 @@
- <h3>My Balances </h3>
+ <h3><%= t("views.my_balances")%> </h3>
 
  <!-- Icon Cards-->
 <div class="row">
@@ -23,7 +23,7 @@
 	<% end %>
 </div>
 <hr>
-<h3>My Expenses </h3>
+<h3><%= t("views.my_expenses")%> </h3>
 <div class="row">
 	 
   <div class="col-xl-6 col-sm-6 mb-3">
@@ -65,7 +65,7 @@
 </div>
 
 <hr>
-<h3>My Cards </h3>
+<h3><%= t("views.my_cards")%> </h3>
 <div class="row">
   <% @cards.each do |card| %>
     <div class="col-xl-12 col-sm-12 mb-3">
