@@ -6,7 +6,7 @@ class SuppliersController < ApplicationController
   # GET /suppliers
   # GET /suppliers.json
   def index
-    @suppliers = policy_scope(Supplier).all
+    @suppliers = policy_scope(Supplier).all.page(params[:page]).per(5)
   end
 
   # GET /suppliers/1

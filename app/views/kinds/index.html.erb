@@ -28,4 +28,13 @@
 
     <%= link_to t('actions.new', model: @kinds.model_name.human), new_kind_path, class: "btn btn-primary" %>
   </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <%= paginate @kinds %>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
 </div>

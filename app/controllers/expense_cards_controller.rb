@@ -6,7 +6,7 @@ class ExpenseCardsController < ApplicationController
   # GET /expense_cards
   # GET /expense_cards.json
   def index
-    @expense_cards = policy_scope(ExpenseCard).all
+    @expense_cards = policy_scope(ExpenseCard).all.page(params[:page]).per(5)
   end
 
   # GET /expense_cards/1

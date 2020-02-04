@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = policy_scope(User).all
+    @users = policy_scope(User).all.page(params[:page]).per(5)
   end
 
   # GET /users/1

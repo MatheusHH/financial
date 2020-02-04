@@ -27,6 +27,15 @@
 
     <%= link_to t('actions.new', model: @users.model_name.human), new_user_path, class: "btn btn-primary" %>
   </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <%= paginate @users %>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
 </div>
 
 

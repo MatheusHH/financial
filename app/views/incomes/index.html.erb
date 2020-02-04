@@ -30,4 +30,13 @@
 
     <%= link_to t('actions.new(a)', model: @incomes.model_name.human), new_income_path, class: "btn btn-primary" %>
   </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <%= paginate @incomes %>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
 </div>

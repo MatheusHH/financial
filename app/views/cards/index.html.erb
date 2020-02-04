@@ -36,4 +36,13 @@
     <br>
     <%= link_to t('actions.new', model: @cards.model_name.human), new_card_path, class: "btn btn-primary" %>
   </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <%= paginate @cards %>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
 </div>

@@ -6,7 +6,7 @@ class SourcesController < ApplicationController
   # GET /sources
   # GET /sources.json
   def index
-    @sources = policy_scope(Source).all
+    @sources = policy_scope(Source).all.page(params[:page]).per(5)
   end
 
   # GET /sources/1

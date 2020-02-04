@@ -34,4 +34,13 @@
 
     <%= link_to t('actions.new(a)', model: @transfers.model_name.human), new_transfer_path, class: "btn btn-primary" %>
   </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <%= paginate @transfers %>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
 </div>

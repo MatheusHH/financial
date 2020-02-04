@@ -6,7 +6,7 @@ class KindsController < ApplicationController
   # GET /kinds
   # GET /kinds.json
   def index
-    @kinds = policy_scope(Kind).all
+    @kinds = policy_scope(Kind).all.page(params[:page]).per(5)
   end
 
   # GET /kinds/1

@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = policy_scope(Category).all
+    @categories = policy_scope(Category).all.page(params[:page]).per(5)
   end
 
   # GET /categories/1

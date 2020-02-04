@@ -7,7 +7,7 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = policy_scope(Card).all
+    @cards = policy_scope(Card).all.page(params[:page]).per(5)
   end
 
   # GET /cards/1

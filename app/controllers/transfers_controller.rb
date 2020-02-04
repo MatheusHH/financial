@@ -8,7 +8,7 @@ class TransfersController < ApplicationController
   # GET /transfers
   # GET /transfers.json
   def index
-    @transfers = policy_scope(Transfer).all
+    @transfers = policy_scope(Transfer).all.page(params[:page]).per(5)
   end
 
   # GET /transfers/1
