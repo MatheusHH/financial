@@ -13,7 +13,7 @@
 	        <div class="mr-5"><%= humanized_money_with_symbol account.balance %></div>
 	      </div>
 	      <%= link_to edit_account_path(account), class: "card-footer text-white clearfix small z-1" do %>
-	        <span class="float-left">View Details</span>
+	        <span class="float-left"><%= t("views.details")%></span>
 	        <span class="float-right">
 	          <i class="fa fa-angle-right"></i>
 	        </span>
