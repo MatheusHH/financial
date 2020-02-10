@@ -27,7 +27,11 @@ gem 'groupdate'
 gem 'kaminari'
 gem 'redis'
 gem 'sidekiq'
+#<<<<<<< HEAD
 #gem 'sidekiq-scheduler', '~> 1'
+#=======
+gem 'sidekiq-scheduler'
+#>>>>>>> scheduler
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
