@@ -29,3 +29,22 @@ $(document).on("turbolinks:click", function(){
 $(document).on("turbolinks:load", function(){
   $(".spinner-grow").delay(1000).hide(0);
 });
+
+
+
+
+/*$(document).on("turbolinks:load", function(){
+	var startDate = new Date();
+	var fechaFin = new Date();
+	var FromEndDate = new Date();
+	var ToEndDate = new Date();
+	$('#date_expense').datepicker({
+	    autoclose: true,
+	    minViewMode: 1,
+	    format: 'mm/yyyy'
+	}).on('changeDate', function(selected){
+	        startDate = new Date(selected.date.valueOf());
+	        startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+	        $('#date_expense').datepicker('setStartDate', startDate);
+	    }); 
+});*/

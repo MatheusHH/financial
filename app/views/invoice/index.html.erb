@@ -2,8 +2,8 @@
   <div class="card-body">
 	<%= form_with(url: "/invoice/index", local: true, method: "get") do %>
 	  <div class="row">
-        <div class="col-sm-4">
-          <div class="form-group">
+      <div class="col-sm-4">
+        <div class="form-group">
 	  		<!--<%= date_select(:date, "date", discard_day: true) %>-->
 	  		<%= text_field_tag :date, "Fechamento fatura", class: "form-control", id: "invoice_date" %>
 	  	  </div>

@@ -3,7 +3,26 @@
     <div class="card card shadow p-3 mb-5">
       <div class="card-header"><%= t("views.expense")%></div>
       <div class="card-body">
-      	<%= pie_chart @expenses.group("categories.name").sum("(value_cents/100.00)"), prefix: "R$", thousands: ".", decimal: ",", donut: true, round: 2, zeros: true %>
+        <%= form_with(url: "/charts/index", local: true, method: "get") do %>
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="form-group">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= date_select(:date_expense, "", options = {discard_day: true, include_blank: false}, html_options = {class: "form-control"}) %>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <%= submit_tag t("helpers.submit.search"), class: "btn btn-primary btn-sm" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      	<%= pie_chart @expenses.group("categories.name").sum("(value_cents/100.00)"), prefix: "R$", thousands: ".", decimal: ",", donut: true, round: 2, zeros: true, messages: {empty: "Nenhuma movimentação"} %>
       </div>
     </div>
   </div>
@@ -12,7 +31,26 @@
     <div class="card card shadow p-3 mb-5">
       <div class="card-header"><%= t("views.incomes")%></div>
       <div class="card-body">
-      	<%= pie_chart @incomes.group("kinds.name").sum("(value_cents/100.00)"), prefix: "R$", thousands: ".", decimal: ",", donut: true, round: 2, zeros: true %>
+        <%= form_with(url: "/charts/index", local: true, method: "get") do %>
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="form-group">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= date_select(:date_income, "", options = {discard_day: true, include_blank: false}, html_options = {class: "form-control"}) %>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <%= submit_tag t("helpers.submit.search"), class: "btn btn-primary btn-sm" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      	<%= pie_chart @incomes.group("kinds.name").sum("(value_cents/100.00)"), prefix: "R$", thousands: ".", decimal: ",", donut: true, round: 2, zeros: true, messages: {empty: "Nenhuma movimentação"} %>
       </div>
     </div>
   </div>
