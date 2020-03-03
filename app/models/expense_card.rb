@@ -9,6 +9,7 @@ class ExpenseCard < ApplicationRecord
   before_create :update_limit_card_create
   before_update :update_limit_card_update
   before_destroy :update_limit_card_deteted
+  after_commit :expense_times_create, on: :create
 
   before_validation :set_status, on: :create
 
@@ -19,8 +20,9 @@ class ExpenseCard < ApplicationRecord
 
   def update_limit_card_create
   	if self.card_id.present?
-  	  card = Card.find(self.card_id)
-  	  if card.balance_card_cents >= self.value_cents
+  	  card = Card.find(self.card_id) #verificar antes total expense
+      total_value = self.value_cents * (self.expense_times.to_i + 1)
+  	  if card.balance_card_cents >= self.value_cents && card.balance_card_cents >= total_value
   	  	card.balance_card_cents -= self.value_cents
   	  	card.update(balance_card_cents: card.balance_card_cents)
   	  else
@@ -28,6 +30,23 @@ class ExpenseCard < ApplicationRecord
   	  	raise ActiveRecord::RecordInvalid.new(self)
   	  end
   	end
+  end
+
+  def expense_times_create
+    if self.expense_times.to_i > 0
+      card = Card.find(self.card_id)
+      total_value = self.value_cents * self.expense_times.to_i
+      if self.expense_times.to_i > 0 && card.balance_card_cents >= total_value
+        date = Date.current
+        (1..self.expense_times.to_i).each { 
+          date = date + 30.days
+          ExpenseCard.create(invoice_date: date, value: self.value, card_id: self.card_id, user_id: self.user_id)
+        }
+      else
+        self.errors.add :base, "There is not limit available" 
+        raise ActiveRecord::RecordInvalid.new(self)
+      end
+    end
   end 
  
   def update_limit_card_update

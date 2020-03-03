@@ -73,6 +73,6 @@ class ExpenseCardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_card_params
-      params.require(:expense_card).permit(:invoice_date, :value, :status, :card_id, :user_id)
+      params.require(:expense_card).permit(:invoice_date, :value, :expense_times, :status, :card_id, :user_id)
     end
 end

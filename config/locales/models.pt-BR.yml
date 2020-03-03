@@ -96,6 +96,7 @@ pt-BR:
         status: Status
         user: Usuário
         card_id: Cartão
+        expense_times: Vezes (Além da primeira)
       payment_card:
         invoice_payment_date: Fechamento fatura
         value: Valor
