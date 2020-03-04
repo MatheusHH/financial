@@ -37,6 +37,9 @@ pt-BR:
       payment_card:
         one: Pagamento de cartão
         other: Pagamento de cartões
+      appointment: 
+        one: Compromisso
+        other: Compromissos
 
     attributes:
       user:
@@ -102,4 +105,9 @@ pt-BR:
         value: Valor
         account_id: Conta
         card_id: Cartão
+        user: Usuário
+      appointment:
+        schedule: Data/horário do Compromisso
+        description: Descrição
+        status: Status
         user: Usuário

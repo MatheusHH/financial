@@ -4,6 +4,7 @@ require 'sidekiq-scheduler/web'
 Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
   
+  resources :appointments, :except => [:show] 
   resources :payment_cards, :except => [:show]
   resources :expense_cards, :except => [:show] 
   resources :cards

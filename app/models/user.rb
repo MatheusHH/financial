@@ -14,5 +14,6 @@ class User < ApplicationRecord
   has_many :cards, dependent: :destroy
   has_many :expense_cards, dependent: :destroy
   has_many :payment_cards, dependent: :destroy
+  has_many :appointments, dependent: :destroy
   
 end

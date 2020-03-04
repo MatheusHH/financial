@@ -1,0 +1,49 @@
+<div class="card shadow p-3 mb-5">
+  <div class="card-body"> 
+    <%= form_with(model: appointment, local: true) do |form| %>
+      <% if appointment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+          <ul>
+          <% appointment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+ 
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="form-group">
+            <%= form.label :schedule %>
+            <%= form.text_field :schedule, class: "form-control", id: "datetimepicker", data: {toggle: "datetimepicker", target: "#datetimepicker"} %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-10">
+          <div class="form-group">
+            <%= form.label :description %>
+            <%= form.text_area :description, class: "form-control", rows: 10 %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="form-group">
+            <%= form.label :status %>
+            <%= form.select :status, Appointment.statuses.keys.to_a, {}, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= form.submit t("helpers.submit.create"), class: "btn btn-primary" %>
+        <%= link_to t("actions.back"), appointments_path, class: "btn btn-success" %>
+      </div>
+    <% end %> 
+  </div>
+</div>

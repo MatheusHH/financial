@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  schedule: 2020-03-04 19:07:56
+  description: MyText
+  status: 1
+  user: one
+
+two:
+  schedule: 2020-03-04 19:07:56
+  description: MyText
+  status: 1
+  user: two

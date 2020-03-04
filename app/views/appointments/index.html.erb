@@ -1,0 +1,44 @@
+<h1><%= @appointments.model_name.human(count: 2) %></h1>
+<div class="card shadow p-3 mb-5">  
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover table-dark">
+        <thead> 
+          <tr>
+            <th><%= @appointments.human_attribute_name("schedule") %></th>
+            <th><%= @appointments.human_attribute_name("description") %></th>
+            <th><%= @appointments.human_attribute_name("status") %></th>
+            <th><%= @appointments.human_attribute_name("user") %></th>
+            <th><%= t('helpers.submit.actions') %></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @appointments.each do |appointment| %>
+            <tr>
+              <td><%= appointment.schedule %></td>
+              <td><%= appointment.description %></td>
+              <td><%= appointment.status %></td>
+              <td><%= appointment.user.name %></td>
+              <td><%= link_to edit_appointment_path(appointment), class: "btn btn-info btn-circle" do %><i class="fa fa-edit"></i><% end %>
+              <%= link_to appointment_path(appointment), method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do  %> <i class="fa fa-trash"></i> <% end %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+
+    <%= link_to t('actions.new', model: @appointments.model_name.human), new_appointment_path, class: "btn btn-primary" %>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <%= paginate @appointments %>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

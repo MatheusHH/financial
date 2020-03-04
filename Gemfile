@@ -25,6 +25,9 @@ gem 'jquery-ui-rails'
 gem "chartkick"
 gem 'groupdate'
 gem 'kaminari'
+
+gem 'bootstrap4-datetime-picker-rails'
+
 gem 'redis'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
