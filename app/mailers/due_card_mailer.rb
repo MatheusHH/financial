@@ -1,5 +1,5 @@
 class DueCardMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'notifications@myfinancials.com'
  
   def notify(user, card)
     @user = user

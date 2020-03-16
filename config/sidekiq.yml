@@ -4,4 +4,9 @@
     class: DueCardNotificationJob
     queue: emails
     enabled: true
+  appointment_job:
+    every: ['24h', first_in: '0s']
+    class: AppointmentsJob
+    queue: emails
+    enabled: true
     

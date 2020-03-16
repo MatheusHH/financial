@@ -146,8 +146,9 @@ pt-BR:
     my_balances: Meus Saldos
     my_expenses: Despesas
     my_cards: Meus Cartões
-    opened_values: Valores em aberto
+    opened_values: Valores abertos até hoje
     paid_values: Valores pagos 
+    opened_values_future: Valores abertos à vencer
     details: Detalhes
     incomes: Receitas
     expense_by_month: Despesas por Mês

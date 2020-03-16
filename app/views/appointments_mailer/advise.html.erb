@@ -1,0 +1,30 @@
+<h4>Hello <%= @user.name %></h4>
+
+<h4> Today, you have the following tasks to do ! </h4>
+
+<div class="card shadow p-3 mb-5">  
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover table-dark">
+        <thead> 
+          <tr>
+            <th><%= @appointments.human_attribute_name("schedule") %></th>
+            <th><%= @appointments.human_attribute_name("description") %></th>
+            <th><%= @appointments.human_attribute_name("status") %></th>
+            <th><%= @appointments.human_attribute_name("user") %></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @appointments.each do |appointment| %>
+            <tr>
+              <td><%= appointment.schedule %></td>
+              <td><%= appointment.description %></td>
+              <td><%= appointment.status %></td>
+              <td><%= appointment.user.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>
