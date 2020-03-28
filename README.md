@@ -5,19 +5,15 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version - 2.6.3 
 
-* System dependencies
+* Rails version - 5.2
 
-* Configuration
+* System dependencies - Docker / Docker-compose
 
-* Database creation
+* Configuration - Git clone repository, install docker and docker composer and you can run docker-compose build
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+* Services (job queues, cache servers, search engines, etc.) - Emails jobs using sidekiq/ Redis
 
 * Deployment instructions
 
