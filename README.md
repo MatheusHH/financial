@@ -21,5 +21,7 @@
 
 * Services (job queues, cache servers, search engines, etc.) - Emails jobs using sidekiq/ Redis
 
-* Deployment instructions
+* Some roles:
+
+ Take control your expenses, how much you owe, you will pay and what you didnt pay yet. Take control about your incomes, from where this money came. Take control about your credit cards, control its limits. In charts you have how much you spent by categories, the same happens to incomes, control you bank accounts, your transfers and each expense you record you record where you pay it too. Receive by email using active jobs when you credit card dues and take control about your appointments, receiving emails with your tasks from that day. 
 
